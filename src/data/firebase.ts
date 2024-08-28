@@ -25,12 +25,16 @@ async function addUser(user: User, displayName?: string) {
   const docRef = doc(db, "users", user.uid);
   const docSnap = await getDoc(docRef);
 
-  if (!docSnap.exists()) {
-    await setDoc(docRef, {
-      name: user.displayName || displayName,
-      email: user.email,
-      createdAt: new Date(),
-    });
+  try {
+    if (!docSnap.exists()) {
+      await setDoc(docRef, {
+        name: user.displayName || displayName,
+        email: user.email,
+        createdAt: new Date(),
+      });
+    }
+  } catch (error) {
+    console.log("error", error);
   }
 }
 
@@ -40,8 +44,10 @@ export async function handleSignInGoogle() {
     const result = await signInWithPopup(auth, provider);
     const user = result.user as User;
     await addUser(user);
+    return { sucess: true };
   } catch (error) {
     console.log("error", error);
+    return { sucess: false, error };
   }
 }
 
@@ -59,13 +65,18 @@ export async function handleEmailAuth(
         email,
         password
       );
+
       const user = result.user as User;
+
       await addUser(user, displayName);
+
+      return { sucess: true };
     }
 
     if (action === "signIn") {
-      const result = await signInWithEmailAndPassword(auth, email, password);
-      console.log("result", result);
+      await signInWithEmailAndPassword(auth, email, password);
+
+      return { sucess: true };
     }
   } catch (error) {
     console.log("error", error);

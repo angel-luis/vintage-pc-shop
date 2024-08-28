@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Input from "@/components/input";
 import { handleEmailAuth } from "@/data/firebase";
@@ -9,6 +9,7 @@ import Button from "./button";
 
 export default function SignUpForm() {
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -35,7 +36,7 @@ export default function SignUpForm() {
         return;
       }
 
-      redirect("/my-account");
+      navigate("/");
     },
   });
 

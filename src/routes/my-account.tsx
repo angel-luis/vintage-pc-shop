@@ -1,6 +1,6 @@
 import { handleSignInGoogle } from "@/data/firebase";
 
-export default function SignInPage() {
+export default function MyAccountPage() {
   return (
     <>
       <h1>Sign In</h1>

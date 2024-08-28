@@ -4,14 +4,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import HeaderLayout from "@/routes/header";
 import HomePage from "@/routes/home";
+import MainLayout from "@/routes/layouts/main";
 import SignInPage from "@/routes/signin";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HeaderLayout />,
+    element: <MainLayout />,
     children: [
       {
         index: true,

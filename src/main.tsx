@@ -8,6 +8,8 @@ import AccountAccessPage from "@/routes/account-access";
 import HomePage from "@/routes/home";
 import MainLayout from "@/routes/layouts/main";
 
+import MyAccountPage from "./routes/my-account";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,8 +20,12 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "my-account",
+        path: "account-access",
         element: <AccountAccessPage />,
+      },
+      {
+        path: "my-account",
+        element: <MyAccountPage />,
       },
     ],
   },

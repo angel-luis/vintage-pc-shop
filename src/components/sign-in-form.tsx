@@ -6,8 +6,8 @@ import Input from "@/components/input";
 export default function SignInForm() {
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      emailSignIn: "",
+      passwordSignIn: "",
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -19,19 +19,19 @@ export default function SignInForm() {
       <div className="space-y-2">
         <Input
           label="Email Address"
-          name="email"
+          name="emailSignIn"
           type="email"
           onChange={formik.handleChange}
-          value={formik.values.email}
+          value={formik.values.emailSignIn}
           required
         />
 
         <Input
           label="Password"
-          name="password"
+          name="passwordSignIn"
           type="password"
           onChange={formik.handleChange}
-          value={formik.values.password}
+          value={formik.values.passwordSignIn}
           required
         />
       </div>

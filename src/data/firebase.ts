@@ -1,9 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  User,
+    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword,
+    signInWithPopup, User
 } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 
@@ -23,13 +21,13 @@ const db = getFirestore(app);
 
 export const provider = new GoogleAuthProvider();
 
-async function addUser(user: User) {
+async function addUser(user: User, displayName?: string) {
   const docRef = doc(db, "users", user.uid);
   const docSnap = await getDoc(docRef);
 
   if (!docSnap.exists()) {
     await setDoc(docRef, {
-      name: user.displayName,
+      name: user.displayName || displayName,
       email: user.email,
       createdAt: new Date(),
     });
@@ -40,11 +38,37 @@ export async function handleSignInGoogle() {
   try {
     const auth = getAuth();
     const result = await signInWithPopup(auth, provider);
-    //const credential = GoogleAuthProvider.credentialFromResult(result);
-    //const token = credential?.accessToken;
     const user = result.user as User;
-    addUser(user);
+    await addUser(user);
   } catch (error) {
     console.log("error", error);
+  }
+}
+
+export async function handleEmailAuth(
+  action: "signIn" | "signUp",
+  email: string,
+  password: string,
+  displayName?: string
+) {
+  try {
+    const auth = getAuth();
+    if (action === "signUp") {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = result.user as User;
+      await addUser(user, displayName);
+    }
+
+    if (action === "signIn") {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      console.log("result", result);
+    }
+  } catch (error) {
+    console.log("error", error);
+    return { sucess: false, error };
   }
 }

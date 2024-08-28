@@ -4,6 +4,7 @@ export default function Input({
   type,
   onChange,
   value,
+  minLength,
   required,
 }: {
   name: string;
@@ -11,6 +12,7 @@ export default function Input({
   type: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
+  minLength?: number;
   required: boolean;
 }) {
   return (
@@ -28,6 +30,7 @@ export default function Input({
         type={type}
         onChange={onChange}
         value={value}
+        minLength={minLength}
         required={required}
       />
     </>

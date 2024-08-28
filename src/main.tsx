@@ -4,9 +4,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import AccountAccessPage from "@/routes/account-access";
 import HomePage from "@/routes/home";
 import MainLayout from "@/routes/layouts/main";
-import MyAccountPage from "@/routes/my-account";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-account",
-        element: <MyAccountPage />,
+        element: <AccountAccessPage />,
       },
     ],
   },

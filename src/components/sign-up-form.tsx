@@ -1,11 +1,15 @@
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, redirect } from "react-router-dom";
 
 import Input from "@/components/input";
+import { handleEmailAuth } from "@/data/firebase";
 
 import Button from "./button";
 
 export default function SignUpForm() {
+  const [error, setError] = useState("");
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -13,13 +17,25 @@ export default function SignUpForm() {
       confirmPassword: "",
       displayName: "",
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       if (values.password !== values.confirmPassword) {
-        alert("Passwords do not match");
+        setError("Passwords do not match!");
         return;
       }
 
-      alert(JSON.stringify(values, null, 2));
+      const result = await handleEmailAuth(
+        "signUp",
+        values.email,
+        values.password,
+        values.displayName
+      );
+
+      if (!result?.sucess) {
+        setError("Something went wrong. Please try again.");
+        return;
+      }
+
+      redirect("/my-account");
     },
   });
 
@@ -50,6 +66,7 @@ export default function SignUpForm() {
           type="password"
           onChange={formik.handleChange}
           value={formik.values.password}
+          minLength={6}
           required
         />
 
@@ -59,6 +76,7 @@ export default function SignUpForm() {
           type="password"
           onChange={formik.handleChange}
           value={formik.values.confirmPassword}
+          minLength={6}
           required
         />
       </div>
@@ -72,6 +90,15 @@ export default function SignUpForm() {
           </Link>
           .
         </p>
+
+        {error && (
+          <div
+            className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 text-center mt-2"
+            role="alert"
+          >
+            <span className="font-medium">Error:</span> {error}
+          </div>
+        )}
       </div>
     </form>
   );

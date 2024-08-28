@@ -1,9 +1,15 @@
 import { initializeApp } from "firebase/app";
 import {
-    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword,
-    signInWithPopup, User
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  User,
 } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
+
+import { AuthResult } from "@/lib/definitions";
 
 // This API key is only an identifier, is safe to share
 const firebaseConfig = {
@@ -56,7 +62,7 @@ export async function handleEmailAuth(
   email: string,
   password: string,
   displayName?: string
-) {
+): Promise<AuthResult> {
   try {
     const auth = getAuth();
     if (action === "signUp") {
@@ -70,16 +76,18 @@ export async function handleEmailAuth(
 
       await addUser(user, displayName);
 
-      return { sucess: true };
-    }
-
-    if (action === "signIn") {
+      return { success: true, error: null };
+    } else {
       await signInWithEmailAndPassword(auth, email, password);
 
-      return { sucess: true };
+      return { success: true, error: null };
     }
   } catch (error) {
     console.log("error", error);
-    return { sucess: false, error };
+    if (error && typeof error === "object" && "code" in error) {
+      return { success: false, error: error as { code: string } };
+    }
+
+    return { success: false, error: { code: "unknown-error" } };
   }
 }

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "@/components/button";
 import Input from "@/components/input";
 import { handleEmailAuth } from "@/data/firebase";
+import { AuthResult } from "@/lib/definitions";
 
 export default function SignInForm() {
   const [error, setError] = useState("");
@@ -16,14 +17,20 @@ export default function SignInForm() {
       passwordSignIn: "",
     },
     onSubmit: async (values) => {
-      const result = await handleEmailAuth(
+      const result: AuthResult = await handleEmailAuth(
         "signIn",
         values.emailSignIn,
         values.passwordSignIn
       );
 
-      if (!result?.sucess) {
-        setError("Something went wrong. Please try again.");
+      if (!result.success) {
+        let error = "Something went wrong. Please try again.";
+
+        if (result?.error?.code === "auth/invalid-credential") {
+          error = "Invalid email/password. Please try again.";
+        }
+
+        setError(error);
         return;
       }
 

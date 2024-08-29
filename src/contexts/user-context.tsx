@@ -6,12 +6,12 @@ type UserContextType = {
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
 };
 
-const UserContext = createContext<UserContextType>({
+export const UserContext = createContext<UserContextType>({
   user: null,
   setUser: () => {},
 });
 
-export default function UserContextProvider({
+export function UserContextProvider({
   children,
 }: {
   children: React.ReactNode;

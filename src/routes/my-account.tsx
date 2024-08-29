@@ -5,7 +5,7 @@ export default function MyAccountPage() {
   const user = false;
 
   if (!user) {
-    return <Navigate to="/account-access" />;
+    return <Navigate to="/authentication" />;
   }
 
   return <p>If you see this, is because you're logged in!</p>;

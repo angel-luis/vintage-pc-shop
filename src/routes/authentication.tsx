@@ -2,7 +2,7 @@ import ProviderButton from "@/components/provider-button";
 import SignInForm from "@/components/sign-in-form";
 import SignUpForm from "@/components/sign-up-form";
 
-export default function AccountAccessPage() {
+export default function AuthenticationPage() {
   return (
     /* divide in 50/50 columns */
     <div className="flex flex-wrap">

@@ -1,11 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  User,
+    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword,
+    signInWithPopup, User
 } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 
@@ -24,6 +20,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
+
+const auth = getAuth();
 
 export const provider = new GoogleAuthProvider();
 
@@ -46,7 +44,7 @@ async function addUser(user: User, displayName?: string) {
 
 export async function handleSignInGoogle() {
   try {
-    const auth = getAuth();
+
     const result = await signInWithPopup(auth, provider);
     const user = result.user as User;
     await addUser(user);
@@ -64,7 +62,6 @@ export async function handleEmailAuth(
   displayName?: string
 ): Promise<AuthResult> {
   try {
-    const auth = getAuth();
     if (action === "signUp") {
       const result = await createUserWithEmailAndPassword(
         auth,

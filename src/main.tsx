@@ -4,11 +4,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import UserContextProvider from "@/contexts/user-context";
 import AuthenticationPage from "@/routes/authentication";
 import HomePage from "@/routes/home";
 import MainLayout from "@/routes/layouts/main";
-
-import MyAccountPage from "./routes/my-account";
+import MyAccountPage from "@/routes/my-account";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +33,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
   </StrictMode>
 );

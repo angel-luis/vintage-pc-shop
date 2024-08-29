@@ -1,5 +1,7 @@
 import { User } from "firebase/auth";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+
+import { observeAuthChange } from "@/data/firebase";
 
 type UserContextType = {
   user: User | null;
@@ -18,6 +20,15 @@ export function UserContextProvider({
 }) {
   const [user, setUser] = useState<User | null>(null);
   const value = { user, setUser };
+
+  useEffect(() => {
+    const unsubscribe = observeAuthChange((user: User | null) => {
+      setUser(user);
+    });
+
+    // return this instead () => unsubscribe, because is a wrapper of the real observer
+    return unsubscribe;
+  }, []);
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }

@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
-    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword,
-    signInWithPopup, User
+    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged,
+    signInWithEmailAndPassword, signInWithPopup, User
 } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 
@@ -44,7 +44,6 @@ async function addUser(user: User, displayName?: string) {
 
 export async function handleSignInGoogle() {
   try {
-
     const result = await signInWithPopup(auth, provider);
     const user = result.user as User;
     await addUser(user);
@@ -87,4 +86,8 @@ export async function handleEmailAuth(
 
     return { success: false, error: { code: "unknown-error" } };
   }
+}
+
+export function observeAuthChange(callback: (user: User | null) => void) {
+  return onAuthStateChanged(auth, callback);
 }

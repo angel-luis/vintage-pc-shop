@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 
+import { UserContext } from "@/contexts/user-context";
+
 export default function MyAccountPage() {
-  // TODO: replace with a true Firebase auth handler
-  const user = false;
+  const { user } = useContext(UserContext);
 
   if (!user) {
     return <Navigate to="/authentication" />;

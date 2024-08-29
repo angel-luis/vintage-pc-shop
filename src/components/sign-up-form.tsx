@@ -31,7 +31,7 @@ export default function SignUpForm() {
         values.displayName
       );
 
-      if (!result?.sucess) {
+      if (!result?.success) {
         setError("Something went wrong. Please try again.");
         return;
       }

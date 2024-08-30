@@ -1,5 +1,17 @@
+import { Link } from "react-router-dom";
+
+type Product = {
+  title: string;
+  price: number;
+  image: string;
+  stars: number;
+  score: number;
+  reviews: number;
+  path: string;
+};
+
 export default function HomeDeals() {
-  const products = [
+  const products: Product[] = [
     {
       title: "Apple II",
       price: 490.0,
@@ -7,7 +19,7 @@ export default function HomeDeals() {
       stars: 4,
       score: 4.2,
       reviews: 2,
-      url: "#",
+      path: "/product/#",
     },
     {
       title: "Commodore 64",
@@ -16,7 +28,7 @@ export default function HomeDeals() {
       stars: 4,
       score: 4.7,
       reviews: 8,
-      url: "#",
+      path: "/product/#",
     },
     {
       title: "IBM PC",
@@ -25,7 +37,7 @@ export default function HomeDeals() {
       stars: 5,
       score: 5.0,
       reviews: 1,
-      url: "#",
+      path: "/product/#",
     },
   ];
 
@@ -34,17 +46,17 @@ export default function HomeDeals() {
       {products.map((product) => (
         <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
           <div className="h-56 w-full">
-            <a href="#">
+            <Link to={product.path}>
               <img className="mx-auto h-full" src={product.image} alt="" />
-            </a>
+            </Link>
           </div>
           <div className="pt-6">
-            <a
-              href="#"
+            <Link
+              to={product.path}
               className="text-lg font-semibold leading-tight text-gray-900 hover:underline"
             >
               {product.title}
-            </a>
+            </Link>
 
             <div className="mt-2 flex items-center gap-2">
               <div className="flex items-center">

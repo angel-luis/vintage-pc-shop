@@ -1,7 +1,13 @@
 import { initializeApp } from "firebase/app";
 import {
-    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged,
-    signInWithEmailAndPassword, signInWithPopup, User
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  User,
 } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 
@@ -90,4 +96,8 @@ export async function handleEmailAuth(
 
 export function observeAuthChange(callback: (user: User | null) => void) {
   return onAuthStateChanged(auth, callback);
+}
+
+export async function handleSignOut() {
+  await signOut(auth);
 }

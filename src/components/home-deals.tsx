@@ -9,7 +9,10 @@ export default function HomeDeals() {
   return (
     <div className="mb-4 mx-auto max-w-screen-lg grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
       {products.map((product) => (
-        <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <div
+          key={product.id}
+          className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
+        >
           <div className="h-56 w-full">
             <Link to={product.path}>
               <img className="mx-auto h-full" src={product.image} alt="" />
@@ -25,12 +28,9 @@ export default function HomeDeals() {
 
             <div className="mt-2 flex items-center gap-2">
               <div className="flex items-center">
-                {
-                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                  [...Array(product.stars)].map((_) => (
-                    <img className="h-4 w-4" src="star.svg" />
-                  ))
-                }
+                {[...Array(product.stars)].map((_, index) => (
+                  <img key={index} className="h-4 w-4" src="star.svg" />
+                ))}
               </div>
               <p className="text-sm font-medium text-gray-900">
                 {product.score.toFixed(1)}
@@ -50,23 +50,7 @@ export default function HomeDeals() {
                 type="button"
                 className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
               >
-                <svg
-                  className="-ms-2 me-2 h-5 w-5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
-                  />
-                </svg>
+                <img src="cart-icon.svg" className="-ms-2 me-2 h-5 w-5" />
                 Add to cart
               </button>
             </div>

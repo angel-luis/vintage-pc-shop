@@ -21,7 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="mt-2 flex items-center gap-2">
           <div className="flex items-center">
             {[...Array(product.stars)].map((_, index) => (
-              <img key={index} className="h-4 w-4" src="star.svg" />
+              <img key={index} className="h-4 w-4" src="icons/star.svg" />
             ))}
           </div>
           <p className="text-sm font-medium text-gray-900">
@@ -42,7 +42,10 @@ export default function ProductCard({ product }: { product: Product }) {
             type="button"
             className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
           >
-            <img src="cart-icon.svg" className="-ms-2 me-2 h-5 w-5" />
+            <img
+              src="icons/shopping-cart-plus.svg"
+              className="-ms-2 me-2 h-5 w-5"
+            />
             Add to cart
           </button>
         </div>

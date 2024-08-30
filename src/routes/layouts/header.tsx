@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import CartButton from "@/components/cart/cart-button";
+
 export default function HeaderLayout() {
   const menuLinks = [
     {
@@ -17,14 +19,15 @@ export default function HeaderLayout() {
   ];
 
   return (
-    <header className="flex justify-between mx-8 my-2">
+    <header className="flex justify-between items-center mx-8 my-2">
       <h1>Logo</h1>
-      <nav className="flex gap-4">
+      <nav className="flex gap-4 items-center">
         {menuLinks.map((link) => (
           <Link key={link.path} to={link.path} className="hover:underline">
             {link.name}
           </Link>
         ))}
+        <CartButton />
       </nav>
     </header>
   );

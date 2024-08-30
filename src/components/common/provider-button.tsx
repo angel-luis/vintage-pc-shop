@@ -17,7 +17,7 @@ export default function ProviderButton({
           className="w-full inline-flex items-center justify-center py-2.5 px-5 font-medium transition bg-white rounded-lg border border-gray-200 hover:bg-gray-200"
           onClick={handleSignInGoogle}
         >
-          <img className="mr-2" src="/google-logo.svg" width={18} />
+          <img className="mr-2" src="icons/google-logo.svg" width={18} />
           {buttonTitle}
         </button>
       </div>

@@ -1,45 +1,10 @@
 import { Link } from "react-router-dom";
 
-type Product = {
-  title: string;
-  price: number;
-  image: string;
-  stars: number;
-  score: number;
-  reviews: number;
-  path: string;
-};
+import ProductData from "@/data/products.json";
+import { Product } from "@/lib/definitions";
 
 export default function HomeDeals() {
-  const products: Product[] = [
-    {
-      title: "Apple II",
-      price: 490.0,
-      image: "https://placehold.co/280x240",
-      stars: 4,
-      score: 4.2,
-      reviews: 2,
-      path: "/product/#",
-    },
-    {
-      title: "Commodore 64",
-      price: 345.0,
-      image: "https://placehold.co/280x240",
-      stars: 4,
-      score: 4.7,
-      reviews: 8,
-      path: "/product/#",
-    },
-    {
-      title: "IBM PC",
-      price: 680.0,
-      image: "https://placehold.co/280x240",
-      stars: 5,
-      score: 5.0,
-      reviews: 1,
-      path: "/product/#",
-    },
-  ];
+  const products: Product[] = ProductData.slice(0, 3);
 
   return (
     <div className="mb-4 mx-auto max-w-screen-lg grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">

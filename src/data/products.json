@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Apple II",
+    "price": 490,
+    "image": "https://placehold.co/280x240",
+    "stars": 4,
+    "score": 4.2,
+    "reviews": 2,
+    "path": "/product/#"
+  },
+  {
+    "title": "Commodore 64",
+    "price": 345,
+    "image": "https://placehold.co/280x240",
+    "stars": 4,
+    "score": 4.7,
+    "reviews": 8,
+    "path": "/product/#"
+  },
+  {
+    "title": "IBM PC",
+    "price": 680,
+    "image": "https://placehold.co/280x240",
+    "stars": 5,
+    "score": 5,
+    "reviews": 1,
+    "path": "/product/#"
+  }
+]

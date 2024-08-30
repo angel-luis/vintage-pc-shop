@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 
-import Button from "@/components/button";
+import Button from "@/components/common/button";
 import { UserContext } from "@/contexts/user-context";
 import { handleSignOut } from "@/data/firebase";
 

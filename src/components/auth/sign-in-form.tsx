@@ -2,8 +2,8 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Button from "@/components/button";
-import Input from "@/components/input";
+import Button from "@/components/common/button";
+import Input from "@/components/common/input";
 import { handleEmailAuth } from "@/data/firebase";
 import { AuthResult } from "@/lib/definitions";
 

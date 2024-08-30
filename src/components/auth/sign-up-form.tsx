@@ -2,10 +2,10 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import Input from "@/components/input";
+import Input from "@/components/common/input";
 import { handleEmailAuth } from "@/data/firebase";
 
-import Button from "./button";
+import Button from "../common/button";
 
 export default function SignUpForm() {
   const [error, setError] = useState("");

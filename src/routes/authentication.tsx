@@ -1,6 +1,6 @@
-import ProviderButton from "@/components/provider-button";
-import SignInForm from "@/components/sign-in-form";
-import SignUpForm from "@/components/sign-up-form";
+import SignInForm from "@/components/auth/sign-in-form";
+import SignUpForm from "@/components/auth/sign-up-form";
+import ProviderButton from "@/components/common/provider-button";
 
 export default function AuthenticationPage() {
   return (

@@ -1,7 +1,7 @@
 import ProductData from "@/data/products.json";
 import { Product } from "@/lib/definitions";
 
-import ProductCard from "./product-card";
+import ProductCard from "../product/product-card";
 
 export default function HomeDeals() {
   const products: Product[] = ProductData.slice(0, 3);

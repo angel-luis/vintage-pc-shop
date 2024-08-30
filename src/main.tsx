@@ -10,6 +10,8 @@ import HomePage from "@/routes/home";
 import MainLayout from "@/routes/layouts/main";
 import MyAccountPage from "@/routes/my-account";
 
+import { ProductContextProvider } from "./contexts/product-context";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,7 +36,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <UserContextProvider>
-      <RouterProvider router={router} />
+      <ProductContextProvider>
+        <RouterProvider router={router} />
+      </ProductContextProvider>
     </UserContextProvider>
   </StrictMode>
 );

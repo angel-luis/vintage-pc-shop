@@ -19,7 +19,7 @@ export default function HeaderLayout() {
   ];
 
   return (
-    <header className="flex justify-between items-center mx-8 my-2">
+    <header className="flex justify-between items-center mx-8 my-4">
       <h1>Logo</h1>
       <nav className="flex gap-4 items-center">
         {menuLinks.map((link) => (

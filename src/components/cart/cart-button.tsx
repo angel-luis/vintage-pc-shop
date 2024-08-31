@@ -1,6 +1,13 @@
-export default function CartButton() {
+export default function CartButton({
+  handleClick,
+}: {
+  handleClick: () => void;
+}) {
   return (
-    <button className="text-blue-500 hover:text-blue-700 transition duration-300 group">
+    <button
+      onClick={handleClick}
+      className="text-blue-500 hover:text-blue-700 transition duration-300 group"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="28"

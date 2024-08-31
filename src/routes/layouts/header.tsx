@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import CartButton from "@/components/cart/cart-button";
+import CartDrawer from "@/components/cart/cart-drawer";
 
 export default function HeaderLayout() {
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+
   const menuLinks = [
     {
       name: "Home",
@@ -27,7 +31,8 @@ export default function HeaderLayout() {
             {link.name}
           </Link>
         ))}
-        <CartButton />
+        <CartButton handleClick={() => setDrawerOpen(!isDrawerOpen)} />
+        <CartDrawer isOpen={isDrawerOpen} setOpen={setDrawerOpen} />
       </nav>
     </header>
   );

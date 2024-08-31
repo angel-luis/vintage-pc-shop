@@ -5,12 +5,12 @@ import { observeAuthChange } from "@/data/firebase";
 
 type UserContextType = {
   user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  setUser: React.Dispatch<React.SetStateAction<User | null>> | null;
 };
 
 export const UserContext = createContext<UserContextType>({
   user: null,
-  setUser: () => {},
+  setUser: null,
 });
 
 export function UserContextProvider({
@@ -19,7 +19,7 @@ export function UserContextProvider({
   children: React.ReactNode;
 }) {
   const [user, setUser] = useState<User | null>(null);
-  const value = { user, setUser };
+  const providerValue = { user, setUser };
 
   useEffect(() => {
     const unsubscribe = observeAuthChange((user: User | null) => {
@@ -30,5 +30,9 @@ export function UserContextProvider({
     return unsubscribe;
   }, []);
 
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={providerValue}>
+      {children}
+    </UserContext.Provider>
+  );
 }

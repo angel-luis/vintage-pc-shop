@@ -4,6 +4,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import { CartContextProvider } from "@/contexts/cart-context";
 import { ProductContextProvider } from "@/contexts/product-context";
 import { UserContextProvider } from "@/contexts/user-context";
 import AuthenticationPage from "@/routes/authentication";
@@ -36,7 +37,9 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <UserContextProvider>
       <ProductContextProvider>
-        <RouterProvider router={router} />
+        <CartContextProvider>
+          <RouterProvider router={router} />
+        </CartContextProvider>
       </ProductContextProvider>
     </UserContextProvider>
   </StrictMode>

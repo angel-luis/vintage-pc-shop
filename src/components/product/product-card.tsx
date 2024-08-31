@@ -1,8 +1,18 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { CartContext } from "@/contexts/cart-context";
 import { Product } from "@/lib/definitions";
 
 export default function ProductCard({ product }: { product: Product }) {
+  const { setCartProducts } = useContext(CartContext);
+
+  function handleAddToCart() {
+    if (setCartProducts !== null) {
+      setCartProducts((prev) => [...prev, product]);
+    }
+  }
+
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
       <div className="h-56 w-full">
@@ -41,6 +51,7 @@ export default function ProductCard({ product }: { product: Product }) {
           <button
             type="button"
             className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+            onClick={handleAddToCart}
           >
             <img
               src="icons/shopping-cart-plus.svg"

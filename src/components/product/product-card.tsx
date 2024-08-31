@@ -5,11 +5,29 @@ import { CartContext } from "@/contexts/cart-context";
 import { Product } from "@/lib/definitions";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const { setCartProducts } = useContext(CartContext);
+  const { cartProducts, setCartProducts } = useContext(CartContext);
 
   function handleAddToCart() {
     if (setCartProducts !== null) {
-      setCartProducts((prev) => [...prev, product]);
+      // Check if product is already in cart
+      const productInCart = cartProducts.find(
+        (cartProduct) => cartProduct.id === product.id
+      );
+
+      // If product is already in cart, increase quantity
+      if (productInCart) {
+        const newCartProducts = cartProducts.map((cartProduct) => {
+          if (cartProduct.id === product.id) {
+            return { ...cartProduct, quantity: cartProduct.quantity + 1 };
+          }
+          return cartProduct;
+        });
+
+        setCartProducts(newCartProducts);
+      } else {
+        // If product is not in cart, add it
+        setCartProducts((prev) => [...prev, { ...product, quantity: 1 }]);
+      }
     }
   }
 

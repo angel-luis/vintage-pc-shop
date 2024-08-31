@@ -13,3 +13,7 @@ export type Product = {
   reviews: number;
   path: string;
 };
+
+export type ProductCart = Product & {
+  quantity: number;
+};

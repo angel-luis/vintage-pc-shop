@@ -5,12 +5,12 @@ import { observeAuthChange } from "@/data/firebase";
 
 type UserContextType = {
   user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>> | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
 };
 
 export const UserContext = createContext<UserContextType>({
   user: null,
-  setUser: null,
+  setUser: () => {},
 });
 
 export function UserContextProvider({

@@ -4,23 +4,11 @@ import { ProductCart } from "@/lib/definitions";
 
 export default function CartProduct({
   product,
-  cartProducts,
-  setCartProducts,
+  handleRemoveProduct,
 }: {
   product: ProductCart;
-  cartProducts: ProductCart[];
-  setCartProducts: React.Dispatch<React.SetStateAction<ProductCart[]>>;
+  handleRemoveProduct: (product: ProductCart) => void;
 }) {
-  function handleRemoveProduct() {
-    if (setCartProducts !== null) {
-      const newCartProducts = cartProducts.filter(
-        (cartProduct) => cartProduct.id !== product.id
-      );
-
-      setCartProducts(newCartProducts);
-    }
-  }
-
   return (
     <div className="divide-y divide-gray-200 border-t border-gray-200">
       <div className="flex items-start gap-4 py-4">
@@ -106,7 +94,7 @@ export default function CartProduct({
               type="button"
               className="inline-flex items-center text-sm font-medium text-red-600 hover:underline"
               aria-label="Remove item"
-              onClick={handleRemoveProduct}
+              onClick={() => handleRemoveProduct(product)}
             >
               <svg
                 className="me-2 h-4 w-4"

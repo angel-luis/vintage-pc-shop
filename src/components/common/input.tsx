@@ -28,7 +28,7 @@ export default function Input({
         </label>
       )}
       <input
-        className="bg-gray-50 border border-black text-gray-900 text-sm focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 disabled:bg-gray-200"
+        className="bg-gray-50 border border-black text-gray-900 text-sm block w-full p-2.5 disabled:bg-gray-200 focus:border-black focus:ring-4 focus:ring-black"
         id={name}
         name={name}
         type={type}

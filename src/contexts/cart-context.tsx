@@ -45,26 +45,24 @@ export function CartContextProvider({
   }
 
   function handleAddToCart(product: Product) {
-    if (setCartProducts !== null) {
-      // Check if product is already in cart
-      const productInCart = cartProducts.find(
-        (cartProduct) => cartProduct.id === product.id
-      );
+    // Check if product is already in cart
+    const productInCart = cartProducts.find(
+      (cartProduct) => cartProduct.id === product.id
+    );
 
-      // If product is already in cart, increase quantity
-      if (productInCart) {
-        const newCartProducts = cartProducts.map((cartProduct) => {
-          if (cartProduct.id === product.id) {
-            return { ...cartProduct, quantity: cartProduct.quantity + 1 };
-          }
-          return cartProduct;
-        });
+    // If product is already in cart, increase quantity
+    if (productInCart) {
+      const newCartProducts = cartProducts.map((cartProduct) => {
+        if (cartProduct.id === product.id) {
+          return { ...cartProduct, quantity: cartProduct.quantity + 1 };
+        }
+        return cartProduct;
+      });
 
-        setCartProducts(newCartProducts);
-      } else {
-        // If product is not in cart, add it
-        setCartProducts((prev) => [...prev, { ...product, quantity: 1 }]);
-      }
+      setCartProducts(newCartProducts);
+    } else {
+      // If product is not in cart, add it
+      setCartProducts((prev) => [...prev, { ...product, quantity: 1 }]);
     }
   }
 

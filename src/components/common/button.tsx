@@ -21,7 +21,7 @@ export default function Button({
       type={type}
       onClick={onClick}
     >
-      <span className="flex gap-2 items-center justify-center whitespace-nowrap bg-transparent before:absolute before:box-border before:top-0 before:left-0 before:w-full before:h-full before:border-t-2 before:border-l-2 before:border-white before:border-r-2 before:border-r-gray-500 before:border-b-2 before:border-b-gray-500">
+      <span className="flex gap-2 items-center justify-center whitespace-nowrap w95-border">
         {children}
       </span>
     </button>

@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource-variable/pixelify-sans": "^5.0.4",
+    "@fontsource-variable/handjet": "^5.0.6",
     "@fontsource-variable/roboto-mono": "^5.0.20",
     "firebase": "^10.13.0",
     "formik": "^2.4.6",

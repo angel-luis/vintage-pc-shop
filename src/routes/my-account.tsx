@@ -15,12 +15,9 @@ export default function MyAccountPage() {
   return (
     <>
       <p className="my-4">If you see this, is because you're logged in!</p>
-      <Button
-        title="Sign out"
-        type="submit"
-        style="primary"
-        onClick={handleSignOut}
-      />
+      <Button type="submit" style="primary" onClick={handleSignOut}>
+        Sign out
+      </Button>
     </>
   );
 }

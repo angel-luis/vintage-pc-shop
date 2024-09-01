@@ -107,18 +107,14 @@ export default function CartDrawer({
           </div>
         </div>
         <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
-          <Button
-            title="Continue Shopping"
-            style="secondary"
-            onClick={() => setOpen(false)}
-          />
+          <Button style="secondary" onClick={() => setOpen(false)}>
+            Continue Shopping
+          </Button>
           {cartProducts.length > 0 && (
             <Link to="/checkout">
-              <Button
-                title="Checkout"
-                style="primary"
-                onClick={() => setOpen(false)}
-              />
+              <Button style="primary" onClick={() => setOpen(false)}>
+                Checkout
+              </Button>
             </Link>
           )}
         </div>

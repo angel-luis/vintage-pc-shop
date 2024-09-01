@@ -768,10 +768,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource-variable/pixelify-sans@npm:^5.0.4":
-  version: 5.0.4
-  resolution: "@fontsource-variable/pixelify-sans@npm:5.0.4"
-  checksum: 10c0/af84c4b08fc997bdf8b70d61c6da6b6a663acb378df127c73ac960a8cdf434243a0c1f5c51435f18bbdcf3ad03ef22d3dac6a5a83b32f74016bbc59718b8eb49
+"@fontsource-variable/handjet@npm:^5.0.6":
+  version: 5.0.6
+  resolution: "@fontsource-variable/handjet@npm:5.0.6"
+  checksum: 10c0/8a064cc07ce4e60132876c2aac6fe97098f06a777373d0cdc69a246450828c4f12987a959b7f7ccea5ec72351aaeae7ba401c460f8c25aa54eea0d522f7a4e44
   languageName: node
   linkType: hard
 
@@ -3869,7 +3869,7 @@ __metadata:
   resolution: "vintage-pc-shop@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.9.0"
-    "@fontsource-variable/pixelify-sans": "npm:^5.0.4"
+    "@fontsource-variable/handjet": "npm:^5.0.6"
     "@fontsource-variable/roboto-mono": "npm:^5.0.20"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"

@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         body: ["'Roboto Mono Variable'", "monospace"],
-        display: ['"Pixelify Sans Variable"', "system-ui"],
+        display: ['"Handjet Variable"', "system-ui"],
       },
       colors: {
         "brown-500": "#6C4E31",

@@ -1,5 +1,5 @@
 import "@/global.css";
-import "@fontsource-variable/pixelify-sans";
+import "@fontsource-variable/handjet";
 import "@fontsource-variable/roboto-mono";
 
 import { StrictMode } from "react";

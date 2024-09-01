@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import CartButton from "@/components/cart/cart-button";
 import CartDrawer from "@/components/cart/cart-drawer";
+import Button from "@/components/common/button";
 import { CartContext } from "@/contexts/cart-context";
 
 export default function HeaderLayout() {
@@ -24,17 +25,19 @@ export default function HeaderLayout() {
   ];
 
   return (
-    <header className="flex justify-between items-center mx-8 my-4">
-      <h1>Logo</h1>
-      <nav className="flex gap-4 items-center">
-        {menuLinks.map((link) => (
-          <Link key={link.path} to={link.path} className="hover:underline">
-            {link.name}
-          </Link>
-        ))}
-        <CartButton handleClick={() => setDrawerOpen(!isDrawerOpen)} />
-        <CartDrawer isOpen={isDrawerOpen} setOpen={setDrawerOpen} />
-      </nav>
+    <header className="bg-gray-200">
+      <div className="flex justify-between items-center mx-8 my-2">
+        <h1>Logo</h1>
+        <nav className="flex gap-4 items-center">
+          {menuLinks.map((link) => (
+            <Link key={link.path} to={link.path}>
+              <Button style="secondary">{link.name}</Button>
+            </Link>
+          ))}
+          <CartButton handleClick={() => setDrawerOpen(!isDrawerOpen)} />
+          <CartDrawer isOpen={isDrawerOpen} setOpen={setDrawerOpen} />
+        </nav>
+      </div>
     </header>
   );
 }

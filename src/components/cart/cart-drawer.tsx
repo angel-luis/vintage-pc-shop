@@ -94,14 +94,14 @@ export default function CartDrawer({
               <div className="w95-border">
                 <div className="divide-y divide-gray-200">
                   <dl className="flex items-center justify-between gap-4 py-3">
-                    <dt className="font-normal text-gray-500">Subtotal</dt>
+                    <dt className="font-normal text-gray-700">Subtotal</dt>
                     <dd className="font-medium text-gray-900">
                       {currencyConverter(totalCostWithoutTaxes)}
                     </dd>
                   </dl>
 
                   <dl className="flex items-center justify-between gap-4 pb-4 pt-3">
-                    <dt className="font-normal text-gray-500">Tax (8%)</dt>
+                    <dt className="font-normal text-gray-700">Tax (8%)</dt>
                     <dd className="font-medium text-gray-900">
                       {currencyConverter(totalTaxes)}
                     </dd>

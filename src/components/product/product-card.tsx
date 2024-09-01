@@ -51,10 +51,7 @@ export default function ProductCard({ product }: { product: Product }) {
             onClick={() => handleAddToCart(product)}
             widthFull
           >
-            <img
-              src="icons/shopping-cart-plus.svg"
-              className="-ms-2 me-2 h-7 w-7"
-            />
+            <img src="icons/add-to-cart.png" className="-ms-2 me-2 h-6 w-6" />
             Add to cart
           </Button>
         </div>

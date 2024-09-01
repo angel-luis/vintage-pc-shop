@@ -87,10 +87,10 @@ export default function CartDrawer({
                 </div>
               ))
             ) : (
-              <p className="px-2">Your cart is empty!</p>
+              <p className="px-2 text-black">Your cart is empty!</p>
             )}
 
-            <div className="relative mb-4 rounded-sm border border-gray-100 bg-gray-50 px-4">
+            <div className="relative my-4 rounded-sm border border-gray-100 bg-gray-50 px-4">
               <div className="w95-border">
                 <div className="divide-y divide-gray-200">
                   <dl className="flex items-center justify-between gap-4 py-3">

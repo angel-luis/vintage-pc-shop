@@ -2,6 +2,7 @@ import { useContext } from "react";
 
 import CartProduct from "@/components/cart/cart-product";
 import { CartContext } from "@/contexts/cart-context";
+import currencyConverter from "@/lib/currency-converter";
 import { ProductCart } from "@/lib/definitions";
 
 export default function CartDrawer({
@@ -11,7 +12,16 @@ export default function CartDrawer({
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const { cartProducts, handleRemoveProduct, handleQuantityProduct } = useContext(CartContext);
+  const { cartProducts, handleRemoveProduct, handleQuantityProduct } =
+    useContext(CartContext);
+
+  const totalCost = cartProducts.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+
+  const totalCostWithoutTaxes = totalCost - totalCost * 0.08;
+  const totalTaxes = totalCost * 0.08;
 
   return (
     <>
@@ -73,17 +83,21 @@ export default function CartDrawer({
             <div className="divide-y divide-gray-200">
               <dl className="flex items-center justify-between gap-4 py-3">
                 <dt className="font-normal text-gray-500">Subtotal</dt>
-                <dd className="font-medium text-gray-900">$879</dd>
+                <dd className="font-medium text-gray-900">
+                  {currencyConverter(totalCostWithoutTaxes)}
+                </dd>
               </dl>
 
               <dl className="flex items-center justify-between gap-4 pb-4 pt-3">
-                <dt className="font-normal text-gray-500">Tax</dt>
-                <dd className="font-medium text-gray-900">$100</dd>
+                <dt className="font-normal text-gray-500">Tax (8%)</dt>
+                <dd className="font-medium text-gray-900">
+                  {currencyConverter(totalTaxes)}
+                </dd>
               </dl>
 
               <dl className="flex items-center justify-between gap-4 py-3 text-lg font-bold text-gray-900">
                 <dt>Total</dt>
-                <dd>$979</dd>
+                <dd>{currencyConverter(totalCost)}</dd>
               </dl>
             </div>
           </div>

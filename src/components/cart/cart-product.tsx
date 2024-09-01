@@ -5,6 +5,7 @@ import currencyConverter from "@/lib/currency-converter";
 import { ProductCart, ProductQuantityAction } from "@/lib/definitions";
 
 import Button from "../common/button";
+import Input from "../common/input";
 
 export default function CartProduct({
   product,
@@ -53,48 +54,47 @@ export default function CartProduct({
                 onClick={() => handleQuantityProduct(product, "decrement")}
                 style="secondary"
               >
-                <svg
-                  className="h-3 w-3 text-gray-900"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 2"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 1h16"
-                  />
-                </svg>
+                <div className="h-8 items-center content-center">
+                  <svg
+                    className="h-3 w-3 text-gray-900"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 18 2"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M1 1h16"
+                    />
+                  </svg>
+                </div>
               </Button>
-              <input
-                type="text"
-                className="block h-9 w-full border-x-0 border-gray-300 bg-gray-50 py-2 text-center text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-                value={quantity}
-                readOnly
-              />
+              <Input type="text" name="quantity" value={quantity} disabled />
               <Button
                 type="button"
                 onClick={() => handleQuantityProduct(product, "increment")}
                 style="secondary"
               >
-                <svg
-                  className="h-3 w-3 text-gray-900"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 1v16M1 9h16"
-                  />
-                </svg>
+                <div className="h-8 items-center content-center">
+                  <svg
+                    className="h-3 w-3 text-gray-900"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 1v16M1 9h16"
+                    />
+                  </svg>
+                </div>
               </Button>
             </div>
           </form>

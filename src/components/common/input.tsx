@@ -5,26 +5,30 @@ export default function Input({
   onChange,
   value,
   minLength,
-  required,
+  required = false,
+  disabled,
 }: {
   name: string;
-  label: string;
+  label?: string;
   type: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string | number;
   minLength?: number;
-  required: boolean;
+  required?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <>
-      <label
-        className="block mb-2 text-sm font-medium text-gray-900"
-        htmlFor="{name}"
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          className="block mb-2 text-sm font-medium text-gray-900"
+          htmlFor="{name}"
+        >
+          {label}
+        </label>
+      )}
       <input
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+        className="bg-gray-50 border border-black text-gray-900 text-sm focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 disabled:bg-gray-200"
         id={name}
         name={name}
         type={type}
@@ -32,6 +36,7 @@ export default function Input({
         value={value}
         minLength={minLength}
         required={required}
+        disabled={disabled}
       />
     </>
   );

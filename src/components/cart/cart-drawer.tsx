@@ -70,8 +70,7 @@ export default function CartDrawer({
             </button>
           </div>
 
-          {cartProducts &&
-            cartProducts.length > 0 &&
+          {cartProducts.length > 0 &&
             cartProducts.map((product: ProductCart) => (
               <CartProduct
                 key={product.id}
@@ -110,13 +109,15 @@ export default function CartDrawer({
             style="secondary"
             onClick={() => setOpen(false)}
           />
-          <Link to="/checkout">
-            <Button
-              title="Checkout"
-              style="primary"
-              onClick={() => setOpen(false)}
-            />
-          </Link>
+          {cartProducts.length > 0 && (
+            <Link to="/checkout">
+              <Button
+                title="Checkout"
+                style="primary"
+                onClick={() => setOpen(false)}
+              />
+            </Link>
+          )}
         </div>
       </div>
     </>

@@ -1,8 +1,19 @@
+import { useContext } from "react";
+
+import { CartContext } from "@/contexts/cart-context";
+
 export default function CartButton({
   handleClick,
 }: {
   handleClick: () => void;
 }) {
+  const { cartProducts } = useContext(CartContext);
+
+  const totalProducts = cartProducts.reduce(
+    (total, product) => total + product.quantity,
+    0
+  );
+
   return (
     <button
       onClick={handleClick}
@@ -24,7 +35,7 @@ export default function CartButton({
         <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
       </svg>
       <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-0.5 transition duration-300 group-hover:bg-red-700">
-        20
+        {totalProducts}
       </div>
     </button>
   );

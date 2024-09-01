@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { CartContext } from "@/contexts/cart-context";
+import currencyConverter from "@/lib/currency-converter";
 import { Product } from "@/lib/definitions";
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -39,7 +40,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
         <div className="mt-4 flex items-center justify-between gap-4">
           <p className="text-2xl font-extrabold leading-tight text-gray-900">
-            ${product.price.toFixed(2)}
+            {currencyConverter(product.price)}
           </p>
 
           <button

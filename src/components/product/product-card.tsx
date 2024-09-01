@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import Button from "@/components/common/button";
 import { CartContext } from "@/contexts/cart-context";
 import currencyConverter from "@/lib/currency-converter";
 import { Product } from "@/lib/definitions";
@@ -43,17 +44,13 @@ export default function ProductCard({ product }: { product: Product }) {
             {currencyConverter(product.price)}
           </p>
 
-          <button
-            type="button"
-            className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
-            onClick={() => handleAddToCart(product)}
-          >
+          <Button style="tertiary" onClick={() => handleAddToCart(product)}>
             <img
               src="icons/shopping-cart-plus.svg"
-              className="-ms-2 me-2 h-5 w-5"
+              className="-ms-2 me-2 h-7 w-7"
             />
             Add to cart
-          </button>
+          </Button>
         </div>
       </div>
     </div>

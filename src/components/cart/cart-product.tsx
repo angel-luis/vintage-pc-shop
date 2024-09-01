@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import currencyConverter from "@/lib/currency-converter";
 import { ProductCart, ProductQuantityAction } from "@/lib/definitions";
 
 export default function CartProduct({
@@ -96,7 +97,9 @@ export default function CartProduct({
                 </button>
               </div>
             </form>
-            <p className="text-base font-bold text-gray-900">{product.price}</p>
+            <p className="text-base font-bold text-gray-900">
+              {currencyConverter(product.price)}
+            </p>
             <button
               type="button"
               className="inline-flex items-center text-sm font-medium text-red-600 hover:underline"

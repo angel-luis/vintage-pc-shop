@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import CartButton from "@/components/cart/cart-button";
 import CartDrawer from "@/components/cart/cart-drawer";
+import { CartContext } from "@/contexts/cart-context";
 
 export default function HeaderLayout() {
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const { isDrawerOpen, setDrawerOpen } = useContext(CartContext);
 
   const menuLinks = [
     {

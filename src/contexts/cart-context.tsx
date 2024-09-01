@@ -11,6 +11,8 @@ type CartContextType = {
     product: ProductCart,
     action: ProductQuantityAction
   ) => void;
+  isDrawerOpen: boolean;
+  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const CartContext = createContext<CartContextType>({
@@ -19,6 +21,8 @@ export const CartContext = createContext<CartContextType>({
   handleRemoveProduct: () => {},
   handleAddToCart: () => {},
   handleQuantityProduct: () => {},
+  isDrawerOpen: false,
+  setDrawerOpen: () => {},
 });
 
 export function CartContextProvider({
@@ -26,6 +30,8 @@ export function CartContextProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+
   const [cartProducts, setCartProducts] = useState<ProductCart[]>([]);
 
   function handleRemoveProduct(product: Product) {
@@ -94,6 +100,8 @@ export function CartContextProvider({
     handleRemoveProduct,
     handleAddToCart,
     handleQuantityProduct,
+    isDrawerOpen,
+    setDrawerOpen,
   };
 
   return (

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import ProductData from "@/data/products.json";
+import ProductData from "@/data/products-mockup.json";
 import { Product } from "@/lib/definitions";
 
 export const ProductContext = createContext([] as Product[]);

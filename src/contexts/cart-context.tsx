@@ -62,6 +62,8 @@ export function CartContextProvider({
       // If product is not in cart, add it
       setCartProducts((prev) => [...prev, { ...product, quantity: 1 }]);
     }
+
+    setDrawerOpen(true);
   }
 
   function handleQuantityProduct(

@@ -70,7 +70,7 @@ export default function CartDrawer({
             </button>
           </div>
 
-          {cartProducts.length > 0 &&
+          {cartProducts.length > 0 ? (
             cartProducts.map((product: ProductCart) => (
               <CartProduct
                 key={product.id}
@@ -78,7 +78,10 @@ export default function CartDrawer({
                 handleRemoveProduct={handleRemoveProduct}
                 handleQuantityProduct={handleQuantityProduct}
               />
-            ))}
+            ))
+          ) : (
+            <p>Your cart is empty!</p>
+          )}
 
           <div className="mb-4 rounded-lg border border-gray-100 bg-gray-50 px-4">
             <div className="divide-y divide-gray-200">

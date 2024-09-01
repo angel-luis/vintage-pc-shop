@@ -13,9 +13,9 @@ export default function Button({
     <button
       className={`${
         style === "primary"
-          ? "bg-teal-500 hover:bg-teal-600"
-          : "bg-gray-500 hover:bg-gray-600"
-      } relative font-display tracking-normal text-white transition px-5 py-2.5 rounded-sm w-full `}
+          ? "bg-teal-500 hover:bg-teal-600 text-white"
+          : "bg-gray-200 hover:bg-gray-300 text-black"
+      } relative font-display tracking-normal transition px-5 py-2.5 rounded-sm w-full `}
       type={type}
       onClick={onClick}
     >

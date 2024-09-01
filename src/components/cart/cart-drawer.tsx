@@ -80,7 +80,7 @@ export default function CartDrawer({
               />
             ))
           ) : (
-            <p>Your cart is empty!</p>
+            <p className="px-2">Your cart is empty!</p>
           )}
 
           <div className="mb-4 rounded-lg border border-gray-100 bg-gray-50 px-4">

@@ -1,12 +1,16 @@
 import { createContext, useState } from "react";
 
-import { Product, ProductCart } from "@/lib/definitions";
+import { Product, ProductCart, ProductQuantityAction } from "@/lib/definitions";
 
 type CartContextType = {
   cartProducts: ProductCart[];
   setCartProducts: React.Dispatch<React.SetStateAction<ProductCart[]>>;
   handleRemoveProduct: (product: Product) => void;
   handleAddToCart: (product: Product) => void;
+  handleQuantityProduct: (
+    product: ProductCart,
+    action: ProductQuantityAction
+  ) => void;
 };
 
 export const CartContext = createContext<CartContextType>({
@@ -14,6 +18,7 @@ export const CartContext = createContext<CartContextType>({
   setCartProducts: () => {},
   handleRemoveProduct: () => {},
   handleAddToCart: () => {},
+  handleQuantityProduct: () => {},
 });
 
 export function CartContextProvider({
@@ -57,11 +62,38 @@ export function CartContextProvider({
     }
   }
 
+  function handleQuantityProduct(
+    product: ProductCart,
+    action: ProductQuantityAction
+  ) {
+    if (action === "increment") {
+      const newCartProducts = cartProducts.map((cartProduct) => {
+        if (cartProduct.id === product.id) {
+          return { ...cartProduct, quantity: cartProduct.quantity + 1 };
+        }
+        return cartProduct;
+      });
+
+      setCartProducts(newCartProducts);
+    } else {
+      if (product.quantity > 1) {
+        const newCartProducts = cartProducts.map((cartProduct) => {
+          if (cartProduct.id === product.id) {
+            return { ...cartProduct, quantity: cartProduct.quantity - 1 };
+          }
+          return cartProduct;
+        });
+        setCartProducts(newCartProducts);
+      }
+    }
+  }
+
   const providerValue: CartContextType = {
     cartProducts,
     setCartProducts,
     handleRemoveProduct,
     handleAddToCart,
+    handleQuantityProduct,
   };
 
   return (

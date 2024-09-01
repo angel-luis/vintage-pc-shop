@@ -17,3 +17,5 @@ export type Product = {
 export type ProductCart = Product & {
   quantity: number;
 };
+
+export type ProductQuantityAction = "increment" | "decrement";

@@ -1,14 +1,26 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { ProductCart } from "@/lib/definitions";
+import { ProductCart, ProductQuantityAction } from "@/lib/definitions";
 
 export default function CartProduct({
   product,
   handleRemoveProduct,
+  handleQuantityProduct,
 }: {
   product: ProductCart;
   handleRemoveProduct: (product: ProductCart) => void;
+  handleQuantityProduct: (
+    product: ProductCart,
+    action: ProductQuantityAction
+  ) => void;
 }) {
+  const [quantity, setQuantity] = useState(product.quantity);
+
+  useEffect(() => {
+    setQuantity(product.quantity);
+  }, [product.quantity]);
+
   return (
     <div className="divide-y divide-gray-200 border-t border-gray-200">
       <div className="flex items-start gap-4 py-4">
@@ -36,8 +48,7 @@ export default function CartProduct({
               <div className="relative flex w-32 items-center">
                 <button
                   type="button"
-                  id="decrement-button"
-                  data-input-counter-decrement="quantity-input"
+                  onClick={() => handleQuantityProduct(product, "decrement")}
                   className="flex h-9 items-center justify-center rounded-s-lg border border-gray-300 bg-gray-100 p-3 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100"
                 >
                   <svg
@@ -58,17 +69,13 @@ export default function CartProduct({
                 </button>
                 <input
                   type="text"
-                  id="quantity-input"
-                  data-input-counter
-                  aria-describedby="helper-text-explanation"
                   className="block h-9 w-full border-x-0 border-gray-300 bg-gray-50 py-2 text-center text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-                  defaultValue={product.quantity}
-                  required
+                  value={quantity}
+                  readOnly
                 />
                 <button
                   type="button"
-                  id="increment-button"
-                  data-input-counter-increment="quantity-input"
+                  onClick={() => handleQuantityProduct(product, "increment")}
                   className="flex h-9 items-center justify-center rounded-e-lg border border-gray-300 bg-gray-100 p-3 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100"
                 >
                   <svg

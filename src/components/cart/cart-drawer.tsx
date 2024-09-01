@@ -11,7 +11,7 @@ export default function CartDrawer({
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const { cartProducts, handleRemoveProduct } = useContext(CartContext);
+  const { cartProducts, handleRemoveProduct, handleQuantityProduct } = useContext(CartContext);
 
   return (
     <>
@@ -65,6 +65,7 @@ export default function CartDrawer({
                 key={product.id}
                 product={product}
                 handleRemoveProduct={handleRemoveProduct}
+                handleQuantityProduct={handleQuantityProduct}
               />
             ))}
 

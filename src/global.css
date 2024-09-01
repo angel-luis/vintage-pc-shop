@@ -10,6 +10,6 @@
 
 @layer components {
   .w95-border {
-    @apply bg-transparent before:absolute before:box-border before:top-0 before:left-0 before:w-full before:h-full before:border-t-2 before:border-l-2 before:border-white before:border-r-2 before:border-r-gray-500 before:border-b-2 before:border-b-gray-500;
+    @apply bg-transparent before:absolute before:box-border before:top-0 before:left-0 before:w-full before:h-full before:border-t-2 before:border-l-2 before:border-white before:border-r-2 before:border-r-gray-500 before:border-b-2 before:border-b-gray-500 before:pointer-events-none;
   }
 }

@@ -61,7 +61,7 @@ export default function SignInForm() {
       </div>
 
       <div className="mt-4">
-        <Button type="submit" style="primary">
+        <Button type="submit" style="primary" widthFull>
           Sign In
         </Button>
       </div>

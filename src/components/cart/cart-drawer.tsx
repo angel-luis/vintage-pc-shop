@@ -34,24 +34,24 @@ export default function CartDrawer({
         onClick={() => setOpen(false)}
       ></div>
       <div
-        className={`fixed top-0 right-0 z-40 flex h-screen w-full max-w-md flex-col justify-between space-y-4 overflow-y-auto bg-white p-4 transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 z-40 flex h-screen w-full max-w-md flex-col justify-between space-y-4 overflow-y-auto bg-gray-200 p-1 transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex-1 space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-base font-semibold uppercase leading-none text-gray-500">
+          <div className="flex items-center justify-between bg-navy-600 text-white">
+            <h3 className="antialiased font-display text-2xl font-semibold rounded-sm px-4">
               Shopping Cart
             </h3>
 
-            <button
+            <Button
               type="button"
-              className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900"
+              style="secondary"
               aria-label="Close cart"
               onClick={() => setOpen(false)}
             >
               <svg
-                className="h-5 w-5"
+                className="inline-block h-5 w-5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -67,55 +67,64 @@ export default function CartDrawer({
                   d="M6 18 17.94 6M18 18 6.06 6"
                 />
               </svg>
-            </button>
+            </Button>
           </div>
 
-          {cartProducts.length > 0 ? (
-            cartProducts.map((product: ProductCart) => (
-              <CartProduct
-                key={product.id}
-                product={product}
-                handleRemoveProduct={handleRemoveProduct}
-                handleQuantityProduct={handleQuantityProduct}
-              />
-            ))
-          ) : (
-            <p className="px-2">Your cart is empty!</p>
-          )}
+          <div className="px-3">
+            {cartProducts.length > 0 ? (
+              cartProducts.map((product: ProductCart, index) => (
+                <div
+                  key={product.id}
+                  className={`border-b border-gray-300 ${
+                    index === cartProducts.length - 1 ? "border-b-0" : ""
+                  }`}
+                >
+                  <CartProduct
+                    product={product}
+                    handleRemoveProduct={handleRemoveProduct}
+                    handleQuantityProduct={handleQuantityProduct}
+                  />
+                </div>
+              ))
+            ) : (
+              <p className="px-2">Your cart is empty!</p>
+            )}
 
-          <div className="mb-4 rounded-lg border border-gray-100 bg-gray-50 px-4">
-            <div className="divide-y divide-gray-200">
-              <dl className="flex items-center justify-between gap-4 py-3">
-                <dt className="font-normal text-gray-500">Subtotal</dt>
-                <dd className="font-medium text-gray-900">
-                  {currencyConverter(totalCostWithoutTaxes)}
-                </dd>
-              </dl>
+            <div className="relative mb-4 rounded-sm border border-gray-100 bg-gray-50 px-4">
+              <div className="w95-border">
+                <div className="divide-y divide-gray-200">
+                  <dl className="flex items-center justify-between gap-4 py-3">
+                    <dt className="font-normal text-gray-500">Subtotal</dt>
+                    <dd className="font-medium text-gray-900">
+                      {currencyConverter(totalCostWithoutTaxes)}
+                    </dd>
+                  </dl>
 
-              <dl className="flex items-center justify-between gap-4 pb-4 pt-3">
-                <dt className="font-normal text-gray-500">Tax (8%)</dt>
-                <dd className="font-medium text-gray-900">
-                  {currencyConverter(totalTaxes)}
-                </dd>
-              </dl>
+                  <dl className="flex items-center justify-between gap-4 pb-4 pt-3">
+                    <dt className="font-normal text-gray-500">Tax (8%)</dt>
+                    <dd className="font-medium text-gray-900">
+                      {currencyConverter(totalTaxes)}
+                    </dd>
+                  </dl>
 
-              <dl className="flex items-center justify-between gap-4 py-3 text-lg font-bold text-gray-900">
-                <dt>Total</dt>
-                <dd>{currencyConverter(totalCost)}</dd>
-              </dl>
+                  <dl className="flex items-center justify-between gap-4 py-3 text-lg font-bold text-gray-900">
+                    <dt>Total</dt>
+                    <dd>{currencyConverter(totalCost)}</dd>
+                  </dl>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
-          <Button style="secondary" onClick={() => setOpen(false)}>
+
+        <div className="mt-6 p-3 flex flex-col md:flex-row items-center justify-center gap-4">
+          <Button style="secondary" onClick={() => setOpen(false)} widthFull>
             Continue Shopping
           </Button>
           {cartProducts.length > 0 && (
-            <Link to="/checkout">
-              <Button style="primary" onClick={() => setOpen(false)}>
-                Checkout
-              </Button>
-            </Link>
+            <Button style="primary" onClick={() => setOpen(false)} widthFull>
+              <Link to="/checkout">Checkout</Link>
+            </Button>
           )}
         </div>
       </div>

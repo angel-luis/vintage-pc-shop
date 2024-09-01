@@ -14,7 +14,7 @@ export default function ProviderButton({
         <div className="w-full h-0.5 bg-gray-200"></div>
       </div>
       <div className="text-center">
-        <Button style="tertiary" onClick={handleSignInGoogle}>
+        <Button style="tertiary" onClick={handleSignInGoogle} widthFull>
           <img className="mr-2" src="icons/google-logo.svg" width={18} />
           {buttonTitle}
         </Button>

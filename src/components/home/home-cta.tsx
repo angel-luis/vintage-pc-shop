@@ -19,7 +19,7 @@ export default function HomeCTA() {
           of computing with our selection.
         </p>
         <Link to="/shop">
-          <Button type="submit" style="primary">
+          <Button type="submit" style="primary" widthFull>
             Shop now
           </Button>
         </Link>

@@ -46,7 +46,11 @@ export default function ProductCard({ product }: { product: Product }) {
             </p>
           </div>
 
-          <Button style="tertiary" onClick={() => handleAddToCart(product)}>
+          <Button
+            style="tertiary"
+            onClick={() => handleAddToCart(product)}
+            widthFull
+          >
             <img
               src="icons/shopping-cart-plus.svg"
               className="-ms-2 me-2 h-7 w-7"

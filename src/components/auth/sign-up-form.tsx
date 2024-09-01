@@ -82,7 +82,7 @@ export default function SignUpForm() {
       </div>
 
       <div className="mt-4">
-        <Button type="submit" style="primary">
+        <Button type="submit" style="primary" widthFull>
           Create Account
         </Button>
         <p className="mt-2 text-sm text-center">

@@ -17,7 +17,7 @@ export default function CartButton({
 
   return (
     <>
-      <Button onClick={handleClick} style="primary">
+      <Button onClick={handleClick} style="tertiary">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="28"

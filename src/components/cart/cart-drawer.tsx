@@ -1,6 +1,8 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import CartProduct from "@/components/cart/cart-product";
+import Button from "@/components/common/button";
 import { CartContext } from "@/contexts/cart-context";
 import currencyConverter from "@/lib/currency-converter";
 import { ProductCart } from "@/lib/definitions";
@@ -102,20 +104,19 @@ export default function CartDrawer({
             </div>
           </div>
         </div>
-        <div className="mt-6 gap-4 sm:flex sm:items-center sm:justify-center">
-          <button
-            type="button"
-            className="mb-4 flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300     sm:mb-0 sm:mt-0"
-          >
-            Checkout
-          </button>
-          <button
-            type="button"
-            className="block w-full rounded-lg  border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100"
+        <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
+          <Button
+            title="Continue Shopping"
+            style="secondary"
             onClick={() => setOpen(false)}
-          >
-            Continue Shopping
-          </button>
+          />
+          <Link to="/checkout">
+            <Button
+              title="Checkout"
+              style="primary"
+              onClick={() => setOpen(false)}
+            />
+          </Link>
         </div>
       </div>
     </>

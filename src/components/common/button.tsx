@@ -1,11 +1,11 @@
 export default function Button({
   title,
-  type,
+  type = "submit",
   style,
   onClick,
 }: {
   title: string;
-  type: "submit" | "button" | "reset";
+  type?: "submit" | "button" | "reset";
   style: "primary" | "secondary";
   onClick?: () => void;
 }) {

@@ -5,18 +5,28 @@ import ProviderButton from "@/components/common/provider-button";
 export default function AuthenticationPage() {
   return (
     /* divide in 50/50 columns */
-    <div className="flex flex-wrap">
-      <div className="w-full md:w-1/2 px-4 lg:px-12">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          Create an Account
-        </h2>
-        <SignUpForm />
-        <ProviderButton buttonTitle="Create Account with Google" />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+      <div className="relative rounded-sm w-full bg-gray-200 text-black">
+        <div className="w95-border">
+          <h2 className="antialiased text-3xl font-semibold tracking-wider py-1 font-display bg-navy-600 text-white mb-4 text-center m-1">
+            Create an Account
+          </h2>
+          <div className="px-4 lg:px-8 py-4">
+            <SignUpForm />
+            <ProviderButton buttonTitle="Create Account with Google" />
+          </div>
+        </div>
       </div>
-      <div className="w-full md:w-1/2 px-4 lg:px-12 md:border-l mt-8 md:mt-0">
-        <h2 className="text-3xl font-bold mb-8 text-center">Sign In</h2>
-        <SignInForm />
-        <ProviderButton buttonTitle="Sign In with Google" />
+      <div className="relative rounded-sm w-full bg-gray-200 text-black">
+        <div className="w95-border">
+          <h2 className="antialiased text-3xl font-semibold tracking-wider py-1 font-display bg-navy-600 text-white mb-4 text-center m-1">
+            Sign In
+          </h2>
+          <div className="px-4 lg:px-8 py-4">
+            <SignInForm />
+            <ProviderButton buttonTitle="Sign In with Google" />
+          </div>
+        </div>
       </div>
     </div>
   );

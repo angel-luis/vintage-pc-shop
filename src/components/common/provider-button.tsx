@@ -9,9 +9,9 @@ export default function ProviderButton({
   return (
     <>
       <div className="flex items-center my-4">
-        <div className="w-full h-0.5 bg-gray-200"></div>
+        <div className="w-full h-0.5 bg-black"></div>
         <div className="px-4 text-center">or</div>
-        <div className="w-full h-0.5 bg-gray-200"></div>
+        <div className="w-full h-0.5 bg-black"></div>
       </div>
       <div className="text-center">
         <Button style="tertiary" onClick={handleSignInGoogle} widthFull>

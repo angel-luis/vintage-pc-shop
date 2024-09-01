@@ -1,4 +1,6 @@
 import "@/global.css";
+import "@fontsource-variable/pixelify-sans";
+import "@fontsource-variable/roboto-mono";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

@@ -768,6 +768,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-variable/pixelify-sans@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "@fontsource-variable/pixelify-sans@npm:5.0.4"
+  checksum: 10c0/af84c4b08fc997bdf8b70d61c6da6b6a663acb378df127c73ac960a8cdf434243a0c1f5c51435f18bbdcf3ad03ef22d3dac6a5a83b32f74016bbc59718b8eb49
+  languageName: node
+  linkType: hard
+
+"@fontsource-variable/roboto-mono@npm:^5.0.20":
+  version: 5.0.20
+  resolution: "@fontsource-variable/roboto-mono@npm:5.0.20"
+  checksum: 10c0/fd488421e63c4fbac4637ea0df6d38d6c999ccd7a8a9ac583ba2105c73f9f2fa52a94b5cff59638bfdf0cf0f5da0921d81bff77f9a11aa8fabc66c4fd7bf7e63
+  languageName: node
+  linkType: hard
+
 "@grpc/grpc-js@npm:~1.9.0":
   version: 1.9.15
   resolution: "@grpc/grpc-js@npm:1.9.15"
@@ -3855,6 +3869,8 @@ __metadata:
   resolution: "vintage-pc-shop@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.9.0"
+    "@fontsource-variable/pixelify-sans": "npm:^5.0.4"
+    "@fontsource-variable/roboto-mono": "npm:^5.0.20"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
     "@vitejs/plugin-react-swc": "npm:^3.5.0"

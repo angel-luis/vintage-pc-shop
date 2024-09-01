@@ -35,13 +35,11 @@ export function CartContextProvider({
   const [cartProducts, setCartProducts] = useState<ProductCart[]>([]);
 
   function handleRemoveProduct(product: Product) {
-    if (setCartProducts !== null) {
-      const newCartProducts = cartProducts.filter(
-        (cartProduct) => cartProduct.id !== product.id
-      );
+    const newCartProducts = cartProducts.filter(
+      (cartProduct) => cartProduct.id !== product.id
+    );
 
-      setCartProducts(newCartProducts);
-    }
+    setCartProducts(newCartProducts);
   }
 
   function handleAddToCart(product: Product) {

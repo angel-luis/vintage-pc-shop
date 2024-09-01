@@ -15,8 +15,8 @@ export default function HomeCTA() {
           Discover Vintage Computing Gems
         </h2>
         <p className="mb-6 font-light text-gray-500 md:text-lg">
-          Discover our collection of vintage computers, from classic desktops to
-          rare laptops. Relive the glory days of computing with our selection.
+          Explore our collection of vintage computers and relive the glory days
+          of computing with our selection.
         </p>
         <Link to="/shop">
           <Button title="Shop now" type="submit" style="primary" />

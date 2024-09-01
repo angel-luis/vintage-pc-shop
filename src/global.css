@@ -4,6 +4,6 @@
 
 @layer base {
   html {
-    @apply font-body tracking-tight;
+    @apply font-body tracking-tight bg-beige-500 text-brown-500;
   }
 }

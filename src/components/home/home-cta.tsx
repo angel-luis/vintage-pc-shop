@@ -14,7 +14,7 @@ export default function HomeCTA() {
         <h2 className="mb-4 text-5xl antialiased font-display font-bold">
           Discover Vintage Computing Gems
         </h2>
-        <p className="mb-6 font-light text-gray-500 md:text-lg">
+        <p className="mb-6 font-light md:text-lg">
           Explore our collection of vintage computers and relive the glory days
           of computing with our selection.
         </p>

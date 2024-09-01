@@ -15,3 +15,4 @@ It's an e-commerce platform that allows you to buy products and login into an ac
 - Firebase
 - Formik
 - Flowbite Components
+- Fontsource

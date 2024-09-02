@@ -5,7 +5,6 @@ import currencyConverter from "@/lib/currency-converter";
 import { ProductCart, ProductQuantityAction } from "@/lib/definitions";
 
 import Button from "../common/button";
-import Input from "../common/input";
 
 export default function CartProduct({
   product,

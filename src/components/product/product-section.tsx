@@ -7,7 +7,7 @@ export default function ProductSection({ product }: { product: Product }) {
   return (
     <section className="relative py-8 bg-gray-200 md:py-16 max-w-4xl mx-auto">
       <div className="w95-border max-w-screen-xl px-4 mx-auto 2xl:px-0">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
+        <div className="md:grid md:grid-cols-2 md:gap-8 xl:gap-16">
           <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
             <img className="w-full" src={product.image} alt="" />
           </div>

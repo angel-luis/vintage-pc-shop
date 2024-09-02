@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import Logo from "@/components/common/logo";
+
 export default function FooterLayout() {
   const footerLinks = [
     {
@@ -14,8 +16,8 @@ export default function FooterLayout() {
 
   return (
     <footer className="mx-8 my-4">
-      <div className="flex justify-between ">
-        <h1>Logo</h1>
+      <div className="flex justify-between items-center">
+        <Logo />
         <div className="flex gap-4 text-sm">
           {footerLinks.map((link) => (
             <Link key={link.path} to={link.path} className="hover:underline">

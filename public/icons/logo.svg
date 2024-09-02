@@ -1,0 +1,20 @@
+<svg enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512"
+  xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <g>
+      <path d="m61 424 4 88h381l3-89z" fill="#b5a3a3" />
+      <path d="m449 423-388 1 2.593 57.041 32.407-.041v17h38v-17l313.015.895z" fill="#876f6f" />
+    </g>
+    <g>
+      <path d="m36 432h440l-2-432h-434z" fill="#fbf3db" />
+      <g>
+        <path d="m106 53-1 239 300-1-2-240z" fill="#876f6f" />
+        <path d="m140 86-3 171 238-1-4-172z" fill="#b5a3a3" />
+      </g>
+      <g fill="#876f6f">
+        <path d="m100 341v27h123l-4 27h76l-5-27 117-1-1-27z" />
+        <circle cx="397.5" cy="393.5" r="10.5" />
+      </g>
+    </g>
+  </g>
+</svg>

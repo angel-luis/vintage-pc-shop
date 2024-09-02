@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import CartButton from "@/components/cart/cart-button";
 import CartDrawer from "@/components/cart/cart-drawer";
 import Button from "@/components/common/button";
+import Logo from "@/components/common/logo";
 import { CartContext } from "@/contexts/cart-context";
 
 export default function HeaderLayout() {
@@ -31,7 +32,7 @@ export default function HeaderLayout() {
   return (
     <header className="bg-gray-200">
       <div className="flex justify-between items-center mx-8 my-2">
-        <h1>Logo</h1>
+        <Logo />
         <nav className="flex gap-4 items-center">
           <div className="hidden sm:flex gap-4 items-center">
             {menuLinks.map((link) => (

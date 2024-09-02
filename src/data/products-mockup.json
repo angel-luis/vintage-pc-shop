@@ -3,27 +3,30 @@
     "slug": "apple-ii",
     "title": "Apple II",
     "price": 490,
-    "image": "https://placehold.co/280x280",
+    "image": "https://placehold.co/2000x1700",
     "stars": 4,
     "score": 4.2,
-    "reviews": 2
+    "reviews": 2,
+    "description": "The Apple II is a 16-bit personal computer developed by Apple. It was the first personal computer to run on a 16-bit bus, and it was the first personal computer to run on a 16-bit bus."
   },
   {
     "slug": "commodore-64",
     "title": "Commodore 64",
     "price": 345,
-    "image": "https://placehold.co/280x280",
+    "image": "https://placehold.co/2000x1700",
     "stars": 4,
     "score": 4.7,
-    "reviews": 8
+    "reviews": 8,
+    "description": "The Commodore 64 is a 64-bit personal computer developed by Commodore. It was the first personal computer to run on a 64-bit bus, and it was the first personal computer to run on a 64-bit bus."
   },
   {
     "slug": "ibm-pc",
     "title": "IBM PC",
     "price": 680,
-    "image": "https://placehold.co/280x280",
+    "image": "https://placehold.co/2000x1700",
     "stars": 5,
     "score": 5,
-    "reviews": 1
+    "reviews": 1,
+    "description": "The IBM PC is a 16-bit personal computer developed by IBM. It was the first personal computer to run on a 16-bit bus, and it was the first personal computer to run on a 16-bit bus."
   }
 ]

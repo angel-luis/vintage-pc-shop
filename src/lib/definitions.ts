@@ -11,6 +11,7 @@ export type Product = {
   stars: number;
   score: number;
   reviews: number;
+  description: string;
 };
 
 export type ProductCart = Product & {

@@ -71,7 +71,7 @@ export default function ShopSortButton({
       {isSortOpen && (
         <div
           ref={sortRef}
-          className="absolute w95-border w-48 sm:right-0 top-8 z-10 mt-2 origin-top-right rounded-sm border bg-gray-200 p-2 shadow-lg"
+          className="absolute w95-border w-full sm:w-48 sm:right-0 top-8 z-10 mt-2 rounded-sm bg-gray-200 p-2 shadow-lg space-y-2"
         >
           <Button
             onClick={() => sortByPricing("desc")}

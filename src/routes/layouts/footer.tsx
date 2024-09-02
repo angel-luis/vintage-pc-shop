@@ -24,9 +24,16 @@ export default function FooterLayout() {
           ))}
         </div>
       </div>
-      <hr className="my-6 border-gray-200" />
-      <div className="text-center text-sm">
-        Vintage PC Shop - Made by Angel Luis
+      <hr className="my-6 border-beige-600" />
+      <div className="text-center font-display text-xl tracking-wide">
+        Vintage PC Shop - Made by Angel Luis 💾{" "}
+        <a
+          className="hover:underline text-black"
+          href="https://github.com/angel-luis/vintage-pc-shop"
+          target="_blank"
+        >
+          See on Github
+        </a>
       </div>
     </footer>
   );

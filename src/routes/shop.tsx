@@ -1,12 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
-import Button from "@/components/common/button";
 import ShopProductsList from "@/components/shop/shop-products-list";
 import ShopSideNavigation from "@/components/shop/shop-side-navigation";
+import ShopSortButton from "@/components/shop/shop-sort-button";
 import { ProductContext } from "@/contexts/product-context";
+import { Product } from "@/lib/definitions";
 
 export default function ShopPage() {
   const products = useContext(ProductContext);
+
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
+
+  function sortByPricing(filter: "asc" | "desc") {
+    if (filter === "asc") {
+      setFilteredProducts([...products].sort((a, b) => a.price - b.price));
+    } else {
+      setFilteredProducts([...products].sort((a, b) => b.price - a.price));
+    }
+  }
 
   return (
     <section className="py-4 antialiased md:py-8">
@@ -33,50 +48,12 @@ export default function ShopPage() {
               All Computers
             </h2>
           </div>
-          <div className="flex items-center space-x-4">
-            <Button type="button" style="primary">
-              <svg
-                className="-ms-0.5 me-2 h-4 w-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M7 4v16M7 4l3 3M7 4 4 7m9-3h6l-6 6h6m-6.5 10 3.5-7 3.5 7M14 18h4"
-                />
-              </svg>
-              Sort
-              <svg
-                className="-me-0.5 ms-2 h-4 w-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m19 9-7 7-7-7"
-                />
-              </svg>
-            </Button>
-          </div>
+          <ShopSortButton sortByPricing={sortByPricing} />
         </div>
 
         <div className="flex flex-col md:flex-row gap-4">
           <ShopSideNavigation />
-          <ShopProductsList products={products} />
+          <ShopProductsList products={filteredProducts} />
         </div>
       </div>
     </section>

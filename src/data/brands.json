@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Apple",
+    "slug": "apple"
+  },
+  {
+    "title": "Commodore",
+    "slug": "commodore"
+  },
+  {
+    "title": "IBM",
+    "slug": "ibm"
+  },
+  {
+    "title": "Atari",
+    "slug": "atari"
+  },
+  {
+    "title": "Amiga",
+    "slug": "amiga"
+  },
+  {
+    "title": "Sinclair",
+    "slug": "sinclair"
+  },
+  {
+    "title": "Tandy",
+    "slug": "tandy"
+  },
+  {
+    "title": "Texas Instruments",
+    "slug": "texas-instruments"
+  },
+  {
+    "title": "MSX",
+    "slug": "msx"
+  },
+  {
+    "title": "Acorn",
+    "slug": "acorn"
+  },
+  {
+    "title": "NEC",
+    "slug": "nec"
+  },
+  {
+    "title": "Compaq",
+    "slug": "compaq"
+  },
+  {
+    "title": "Kaypro",
+    "slug": "kaypro"
+  },
+  {
+    "title": "Osborne",
+    "slug": "osborne"
+  },
+  {
+    "title": "Altair",
+    "slug": "altair"
+  },
+  {
+    "title": "Epson",
+    "slug": "epson"
+  },
+  {
+    "title": "TRS-80",
+    "slug": "trs-80"
+  },
+  {
+    "title": "DEC",
+    "slug": "dec"
+  },
+  {
+    "title": "Olivetti",
+    "slug": "olivetti"
+  },
+  {
+    "title": "Sharp",
+    "slug": "sharp"
+  }
+]

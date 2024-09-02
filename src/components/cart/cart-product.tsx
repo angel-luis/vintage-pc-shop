@@ -27,17 +27,17 @@ export default function CartProduct({
 
   return (
     <div className="flex items-start gap-4 py-4">
-      <a href="#" className="h-20 w-20 shrink-0">
+      <Link to={`/product/${product.slug}`} className="h-20 w-20 shrink-0">
         <img
           className="h-full w-full"
           src={product.image}
           alt="Product image"
         />
-      </a>
+      </Link>
 
       <div className="min-w-0 flex-1 space-y-3">
         <Link
-          to={product.path}
+          to={`/product/${product.slug}`}
           className="text-base font-medium text-gray-900 hover:underline"
         >
           {""}

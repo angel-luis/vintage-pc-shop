@@ -74,7 +74,7 @@ export default function CartDrawer({
             {cartProducts.length > 0 ? (
               cartProducts.map((product: ProductCart, index) => (
                 <div
-                  key={product.id}
+                  key={product.slug}
                   className={`border-b border-gray-300 ${
                     index === cartProducts.length - 1 ? "border-b-0" : ""
                   }`}

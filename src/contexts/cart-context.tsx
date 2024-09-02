@@ -36,7 +36,7 @@ export function CartContextProvider({
 
   function handleRemoveProduct(product: Product) {
     const newCartProducts = cartProducts.filter(
-      (cartProduct) => cartProduct.id !== product.id
+      (cartProduct) => cartProduct.slug !== product.slug
     );
 
     setCartProducts(newCartProducts);
@@ -45,13 +45,13 @@ export function CartContextProvider({
   function handleAddToCart(product: Product) {
     // Check if product is already in cart
     const productInCart = cartProducts.find(
-      (cartProduct) => cartProduct.id === product.id
+      (cartProduct) => cartProduct.slug === product.slug
     );
 
     // If product is already in cart, increase quantity
     if (productInCart) {
       const newCartProducts = cartProducts.map((cartProduct) => {
-        if (cartProduct.id === product.id) {
+        if (cartProduct.slug === product.slug) {
           return { ...cartProduct, quantity: cartProduct.quantity + 1 };
         }
         return cartProduct;
@@ -72,7 +72,7 @@ export function CartContextProvider({
   ) {
     if (action === "increment") {
       const newCartProducts = cartProducts.map((cartProduct) => {
-        if (cartProduct.id === product.id) {
+        if (cartProduct.slug === product.slug) {
           return { ...cartProduct, quantity: cartProduct.quantity + 1 };
         }
         return cartProduct;
@@ -82,7 +82,7 @@ export function CartContextProvider({
     } else {
       if (product.quantity > 1) {
         const newCartProducts = cartProducts.map((cartProduct) => {
-          if (cartProduct.id === product.id) {
+          if (cartProduct.slug === product.slug) {
             return { ...cartProduct, quantity: cartProduct.quantity - 1 };
           }
           return cartProduct;

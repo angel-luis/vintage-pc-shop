@@ -4,14 +4,13 @@ export type AuthResult = {
 };
 
 export type Product = {
-  id: string;
+  slug: string;
   title: string;
   price: number;
   image: string;
   stars: number;
   score: number;
   reviews: number;
-  path: string;
 };
 
 export type ProductCart = Product & {

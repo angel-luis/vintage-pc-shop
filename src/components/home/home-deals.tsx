@@ -11,7 +11,7 @@ export default function HomeDeals() {
   return (
     <div className="mb-4 mx-auto max-w-screen-lg grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.slug} product={product} />
       ))}
     </div>
   );

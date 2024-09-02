@@ -13,6 +13,7 @@ import AuthenticationPage from "@/routes/authentication";
 import HomePage from "@/routes/home";
 import MainLayout from "@/routes/layouts/main";
 import MyAccountPage from "@/routes/my-account";
+import ProductPage from "@/routes/product";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "my-account",
         element: <MyAccountPage />,
+      },
+      {
+        path: "product/:slug",
+        element: <ProductPage />,
       },
     ],
   },

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ProductCard from "@/components/product/product-card";
 import ShopPagination from "@/components/shop/shop-pagination";
@@ -18,6 +18,10 @@ export default function ShopProductsList({
     startIndex,
     startIndex + productsPerPage
   );
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   return (
     <div>

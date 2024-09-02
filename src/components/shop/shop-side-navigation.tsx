@@ -55,7 +55,7 @@ export default function ShopSideNavigation() {
       <aside
         className={`${
           showFilters ? "block" : "hidden"
-        } relative md:block bg-gray-200 p-4 text-black`}
+        } relative min-w-48 md:block bg-gray-200 p-4 text-black`}
       >
         <div className="w95-border space-y-4">
           <Input

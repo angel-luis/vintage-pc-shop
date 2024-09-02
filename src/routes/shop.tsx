@@ -1,7 +1,13 @@
+import { useContext } from "react";
+
 import Button from "@/components/common/button";
+import ShopProductsList from "@/components/shop/shop-products-list";
 import ShopSideNavigation from "@/components/shop/shop-side-navigation";
+import { ProductContext } from "@/contexts/product-context";
 
 export default function ShopPage() {
+  const products = useContext(ProductContext);
+
   return (
     <section className="py-4 antialiased md:py-8">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
@@ -68,8 +74,9 @@ export default function ShopPage() {
           </div>
         </div>
 
-        <div className="flex">
+        <div className="flex gap-4">
           <ShopSideNavigation />
+          <ShopProductsList products={products} />
         </div>
       </div>
     </section>

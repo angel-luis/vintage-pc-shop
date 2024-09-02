@@ -8,7 +8,7 @@ import AddToCartButton from "./add-to-cart-button";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="relative rounded-lg border bg-gray-200 p-6">
+    <div className="relative rounded-lg border bg-gray-200 p-4">
       <div className="w95-border">
         <div className="h-56 w-full">
           <Link to={`/product/${product.slug}`}>

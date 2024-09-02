@@ -15,7 +15,7 @@ export default function ShopPage() {
           <div className="mb-4 sm:mb-0">
             <nav className="flex" aria-label="Breadcrumb">
               <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-                <li className="inline-flex items-center">
+                <li className="inline-flex items-center text-sm font-medium">
                   <svg
                     className="me-2.5 h-3 w-3"
                     aria-hidden="true"

@@ -49,7 +49,7 @@ export default function HeaderLayout() {
               style="primary"
               onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
             >
-              <img className="h-8" src="icons/menu.png" />
+              <img className="h-8" src="/icons/menu.png" />
             </Button>
           </div>
           <CartButton handleClick={() => setDrawerOpen(!isDrawerOpen)} />

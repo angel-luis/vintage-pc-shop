@@ -5,6 +5,7 @@ import Input from "@/components/common/input";
 
 export default function ShopSideNavigation() {
   const [showFilters, setShowFilters] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     <div>
@@ -25,8 +26,8 @@ export default function ShopSideNavigation() {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeWidth="2"
               d="M18.796 4H5.204a1 1 0 0 0-.753 1.659l5.302 6.058a1 1 0 0 1 .247.659v4.874a.5.5 0 0 0 .2.4l3 2.25a.5.5 0 0 0 .8-.4v-7.124a1 1 0 0 1 .247-.659l5.302-6.059c.566-.646.106-1.658-.753-1.658Z"
             />
           </svg>
@@ -44,9 +45,9 @@ export default function ShopSideNavigation() {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="m19 9-7 7-7-7"
             />
           </svg>
@@ -55,14 +56,15 @@ export default function ShopSideNavigation() {
       <aside
         className={`${
           showFilters ? "block" : "hidden"
-        } relative min-w-48 md:block bg-gray-200 p-4 text-black`}
+        } relative min-w-52 md:block bg-gray-200 p-4 text-black`}
       >
         <div className="w95-border space-y-4">
           <Input
             name="search"
             type="search"
             placeholder="Search computer..."
-            value=""
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
           />
 
           <Button style="secondary" widthFull>
@@ -80,9 +82,9 @@ export default function ShopSideNavigation() {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="m5 15 7-7 7 7"
                 />
               </svg>

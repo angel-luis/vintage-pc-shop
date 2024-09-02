@@ -3,9 +3,19 @@ import { useState } from "react";
 import Button from "@/components//common/button";
 import Input from "@/components/common/input";
 
-export default function ShopSideNavigation() {
+export default function ShopSideNavigation({
+  searchByTitle,
+}: {
+  searchByTitle: (title: string) => void;
+}) {
   const [showFilters, setShowFilters] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+
+  function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value;
+    setSearchValue(value);
+    searchByTitle(value);
+  }
 
   return (
     <div>
@@ -64,7 +74,7 @@ export default function ShopSideNavigation() {
             type="search"
             placeholder="Search computer..."
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={(e) => handleSearch(e)}
           />
 
           <Button style="secondary" widthFull>

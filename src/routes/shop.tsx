@@ -23,6 +23,12 @@ export default function ShopPage() {
     }
   }
 
+  function searchByTitle(title: string) {
+    setFilteredProducts(
+      products.filter((product) => product.title.toLowerCase().includes(title))
+    );
+  }
+
   return (
     <section className="py-4 antialiased md:py-8">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
@@ -52,7 +58,7 @@ export default function ShopPage() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-4">
-          <ShopSideNavigation />
+          <ShopSideNavigation searchByTitle={searchByTitle} />
           <ShopProductsList products={filteredProducts} />
         </div>
       </div>

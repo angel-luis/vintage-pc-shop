@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import CartProduct from "@/components/cart/cart-product";
 import Button from "@/components/common/button";
@@ -16,6 +16,12 @@ export default function CartDrawer({
 }) {
   const { cartProducts, handleRemoveProduct, handleQuantityProduct } =
     useContext(CartContext);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location, setOpen]);
 
   const totalCost = cartProducts.reduce(
     (total, product) => total + product.price * product.quantity,

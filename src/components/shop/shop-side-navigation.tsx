@@ -2,6 +2,12 @@ import { useState } from "react";
 
 import Button from "@/components//common/button";
 import Input from "@/components/common/input";
+import BrandsData from "@/data/brands.json";
+
+type Brand = {
+  slug: string;
+  title: string;
+};
 
 export default function ShopSideNavigation({
   searchByTitle,
@@ -16,6 +22,8 @@ export default function ShopSideNavigation({
     setSearchValue(value);
     searchByTitle(value);
   }
+
+  const brands: Brand[] = BrandsData;
 
   return (
     <div>
@@ -77,29 +85,22 @@ export default function ShopSideNavigation({
             onChange={(e) => handleSearch(e)}
           />
 
-          <Button style="secondary" widthFull>
-            <div className="w-full flex items-center justify-between font-display text-2xl font-semibold">
-              Brands{" "}
-              <svg
-                data-accordion-icon
-                className="h-5 w-5 shrink-0 rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m5 15 7-7 7 7"
-                />
-              </svg>
+          <div className="px-4 bg-navy-600 text-white font-display font-semibold text-xl">
+            Brand
+          </div>
+
+          {brands.map((brand) => (
+            <div key={brand.slug} className="flex items-center">
+              <input
+                className="w-4 h-4 cursor-pointer"
+                id={brand.slug}
+                type="checkbox"
+              />
+              <label className="ml-2 cursor-pointer" htmlFor={brand.slug}>
+                {brand.title}
+              </label>
             </div>
-          </Button>
+          ))}
         </div>
       </aside>
     </div>

@@ -16,8 +16,8 @@
     "title": "Atari"
   },
   {
-    "slug": "amiga",
-    "title": "Amiga"
+    "slug": "next",
+    "title": "NeXT"
   },
   {
     "slug": "sinclair",
@@ -28,55 +28,15 @@
     "title": "Tandy"
   },
   {
-    "slug": "texas-instruments",
-    "title": "Texas Instruments"
+    "slug": "amstrad",
+    "title": "Amstrad"
   },
   {
-    "slug": "msx",
-    "title": "MSX"
-  },
-  {
-    "slug": "acorn",
-    "title": "Acorn"
-  },
-  {
-    "slug": "nec",
-    "title": "NEC"
-  },
-  {
-    "slug": "compaq",
-    "title": "Compaq"
+    "slug": "bbc",
+    "title": "BBC"
   },
   {
     "slug": "kaypro",
     "title": "Kaypro"
-  },
-  {
-    "slug": "osborne",
-    "title": "Osborne"
-  },
-  {
-    "slug": "altair",
-    "title": "Altair"
-  },
-  {
-    "slug": "epson",
-    "title": "Epson"
-  },
-  {
-    "slug": "trs-80",
-    "title": "TRS-80"
-  },
-  {
-    "slug": "dec",
-    "title": "DEC"
-  },
-  {
-    "slug": "olivetti",
-    "title": "Olivetti"
-  },
-  {
-    "slug": "sharp",
-    "title": "Sharp"
   }
 ]

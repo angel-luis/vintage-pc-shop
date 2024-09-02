@@ -7,6 +7,7 @@ export default function Input({
   minLength,
   required = false,
   disabled,
+  placeholder,
 }: {
   name: string;
   label?: string;
@@ -16,6 +17,7 @@ export default function Input({
   minLength?: number;
   required?: boolean;
   disabled?: boolean;
+  placeholder?: string;
 }) {
   return (
     <>
@@ -28,7 +30,7 @@ export default function Input({
         </label>
       )}
       <input
-        className="bg-gray-50 border border-black text-gray-900 text-sm block w-full p-2.5 disabled:bg-gray-200 focus:border-black focus:ring-4 focus:ring-black"
+        className="bg-gray-50 border border-black text-gray-900 text-sm block w-full p-2.5 disabled:bg-gray-200 focus:border-black focus:ring-2 focus:ring-black"
         id={name}
         name={name}
         type={type}
@@ -37,6 +39,7 @@ export default function Input({
         minLength={minLength}
         required={required}
         disabled={disabled}
+        placeholder={placeholder}
       />
     </>
   );

@@ -74,7 +74,7 @@ export default function ShopPage() {
           </div>
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <ShopSideNavigation />
           <ShopProductsList products={products} />
         </div>

@@ -25,7 +25,7 @@ export default function ShopProductsList({
 
   return (
     <div>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-2">
         {currentProducts.map((product) => (
           <ProductCard key={product.slug} product={product} />
         ))}

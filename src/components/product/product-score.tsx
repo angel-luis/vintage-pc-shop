@@ -2,7 +2,7 @@ import { Product } from "@/lib/definitions";
 
 export default function ProductScore({ product }: { product: Product }) {
   return (
-    <div className="mt-2 flex items-center gap-2">
+    <div className="mt-2 flex items-center gap-1 tracking-tighter">
       <div className="flex items-center">
         {[...Array(product.stars)].map((_, index) => (
           <img key={index} className="h-4 w-4" src="/icons/star.svg" />

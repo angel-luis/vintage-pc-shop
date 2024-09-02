@@ -23,10 +23,10 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.title}
           </Link>
 
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
             <ProductScore product={product} />
 
-            <p className="text-2xl font-extrabold leading-tight text-gray-900">
+            <p className="text-xl font-extrabold leading-tight text-gray-900">
               {currencyConverter(product.price)}
             </p>
           </div>

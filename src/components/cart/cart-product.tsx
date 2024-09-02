@@ -54,7 +54,7 @@ export default function CartProduct({
                 onClick={() => handleQuantityProduct(product, "decrement")}
                 style="secondary"
               >
-                <div className="h-8 items-center content-center">
+                <div className="h-6 items-center content-center">
                   <svg
                     className="h-3 w-3 text-gray-900"
                     aria-hidden="true"
@@ -72,13 +72,13 @@ export default function CartProduct({
                   </svg>
                 </div>
               </Button>
-              <Input type="text" name="quantity" value={quantity} disabled />
+              <div className="w-10 text-center">{quantity}</div>
               <Button
                 type="button"
                 onClick={() => handleQuantityProduct(product, "increment")}
                 style="secondary"
               >
-                <div className="h-8 items-center content-center">
+                <div className="h-6 items-center content-center">
                   <svg
                     className="h-3 w-3 text-gray-900"
                     aria-hidden="true"

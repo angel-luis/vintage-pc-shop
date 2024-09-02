@@ -1,6 +1,7 @@
 [
   {
     "slug": "apple-ii",
+    "brandSlug": "apple",
     "title": "Apple II",
     "price": 490,
     "image": "https://placehold.co/2000x1700",
@@ -11,6 +12,7 @@
   },
   {
     "slug": "commodore-64",
+    "brandSlug": "commodore",
     "title": "Commodore 64",
     "price": 345,
     "image": "https://placehold.co/2000x1700",
@@ -21,6 +23,7 @@
   },
   {
     "slug": "ibm-pc",
+    "brandSlug": "ibm",
     "title": "IBM PC",
     "price": 680,
     "image": "https://placehold.co/2000x1700",

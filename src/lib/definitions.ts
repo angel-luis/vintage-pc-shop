@@ -5,6 +5,7 @@ export type AuthResult = {
 
 export type Product = {
   slug: string;
+  brandSlug: string;
   title: string;
   price: number;
   image: string;

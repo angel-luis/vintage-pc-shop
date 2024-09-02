@@ -1,82 +1,82 @@
 [
   {
-    "title": "Apple",
-    "slug": "apple"
+    "slug": "apple",
+    "title": "Apple"
   },
   {
-    "title": "Commodore",
-    "slug": "commodore"
+    "slug": "commodore",
+    "title": "Commodore"
   },
   {
-    "title": "IBM",
-    "slug": "ibm"
+    "slug": "ibm",
+    "title": "IBM"
   },
   {
-    "title": "Atari",
-    "slug": "atari"
+    "slug": "atari",
+    "title": "Atari"
   },
   {
-    "title": "Amiga",
-    "slug": "amiga"
+    "slug": "amiga",
+    "title": "Amiga"
   },
   {
-    "title": "Sinclair",
-    "slug": "sinclair"
+    "slug": "sinclair",
+    "title": "Sinclair"
   },
   {
-    "title": "Tandy",
-    "slug": "tandy"
+    "slug": "tandy",
+    "title": "Tandy"
   },
   {
-    "title": "Texas Instruments",
-    "slug": "texas-instruments"
+    "slug": "texas-instruments",
+    "title": "Texas Instruments"
   },
   {
-    "title": "MSX",
-    "slug": "msx"
+    "slug": "msx",
+    "title": "MSX"
   },
   {
-    "title": "Acorn",
-    "slug": "acorn"
+    "slug": "acorn",
+    "title": "Acorn"
   },
   {
-    "title": "NEC",
-    "slug": "nec"
+    "slug": "nec",
+    "title": "NEC"
   },
   {
-    "title": "Compaq",
-    "slug": "compaq"
+    "slug": "compaq",
+    "title": "Compaq"
   },
   {
-    "title": "Kaypro",
-    "slug": "kaypro"
+    "slug": "kaypro",
+    "title": "Kaypro"
   },
   {
-    "title": "Osborne",
-    "slug": "osborne"
+    "slug": "osborne",
+    "title": "Osborne"
   },
   {
-    "title": "Altair",
-    "slug": "altair"
+    "slug": "altair",
+    "title": "Altair"
   },
   {
-    "title": "Epson",
-    "slug": "epson"
+    "slug": "epson",
+    "title": "Epson"
   },
   {
-    "title": "TRS-80",
-    "slug": "trs-80"
+    "slug": "trs-80",
+    "title": "TRS-80"
   },
   {
-    "title": "DEC",
-    "slug": "dec"
+    "slug": "dec",
+    "title": "DEC"
   },
   {
-    "title": "Olivetti",
-    "slug": "olivetti"
+    "slug": "olivetti",
+    "title": "Olivetti"
   },
   {
-    "title": "Sharp",
-    "slug": "sharp"
+    "slug": "sharp",
+    "title": "Sharp"
   }
 ]

@@ -15,6 +15,7 @@ import MainLayout from "@/routes/layouts/main";
 import MyAccountPage from "@/routes/my-account";
 import ProductPage from "@/routes/product";
 import ShopPage from "@/routes/shop";
+import ShopBrandPage from "@/routes/shop-brand";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "my-account",
         element: <MyAccountPage />,
+      },
+      {
+        path: "shop/:brandSlug",
+        element: <ShopBrandPage />,
       },
       {
         path: "shop",

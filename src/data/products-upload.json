@@ -1,0 +1,145 @@
+[
+  {
+    "slug": "apple-ii",
+    "brandSlug": "apple",
+    "title": "Apple II",
+    "price": 1200,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 5,
+    "score": 4.8,
+    "reviews": 25,
+    "description": "The Apple II, launched in 1977, is an 8-bit personal computer developed by Apple. It is one of the first highly successful mass-produced microcomputers. Featuring a MOS Technology 6502 microprocessor running at 1 MHz, the Apple II was known for its color graphics, expandability, and ease of use. It originally shipped with 4 KB of RAM, expandable to 48 KB, and included a BASIC interpreter in ROM. The machine was a landmark in personal computing history, pioneering the home computer market."
+  },
+  {
+    "slug": "commodore-64",
+    "brandSlug": "commodore",
+    "title": "Commodore 64",
+    "price": 800,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 5,
+    "score": 4.9,
+    "reviews": 50,
+    "description": "The Commodore 64, released in 1982, is an 8-bit home computer developed by Commodore International. It is widely recognized as the best-selling single personal computer model of all time, with sales of over 17 million units. The C64 is powered by a MOS Technology 6510 processor at 1.023 MHz, with 64 KB of RAM, and features an integrated sound chip (SID) renowned for its advanced audio capabilities. The computer's graphics and sound abilities made it popular for gaming, and it remains a favorite among retro computing enthusiasts."
+  },
+  {
+    "slug": "ibm-pc",
+    "brandSlug": "ibm",
+    "title": "IBM PC",
+    "price": 1500,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.5,
+    "reviews": 15,
+    "description": "The IBM Personal Computer, commonly known as the IBM PC, was introduced in 1981 and is an 8-bit personal computer developed by IBM. It became the foundation for the PC compatible market, setting standards in both hardware and software. Powered by an Intel 8088 processor running at 4.77 MHz, it came with 16 KB of RAM, expandable to 640 KB. The IBM PC's open architecture allowed third-party developers to create compatible hardware and software, leading to its dominance in the business market and establishing the PC as a mainstream product."
+  },
+  {
+    "slug": "atari-800",
+    "brandSlug": "atari",
+    "title": "Atari 800",
+    "price": 900,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.6,
+    "reviews": 20,
+    "description": "The Atari 800, launched in 1979, is an 8-bit home computer developed by Atari, Inc. It features the MOS Technology 6502 processor running at 1.79 MHz, with 8 KB to 48 KB of RAM expandable to 48 KB. It was one of the first computers to have custom graphics and sound chips, making it a popular choice for gaming and multimedia applications. Its durable construction and strong software library made it a favorite among early home computer users."
+  },
+  {
+    "slug": "sinclair-zx-spectrum",
+    "brandSlug": "sinclair",
+    "title": "Sinclair ZX Spectrum",
+    "price": 500,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 5,
+    "score": 4.7,
+    "reviews": 35,
+    "description": "The Sinclair ZX Spectrum, released in 1982, is an 8-bit home computer developed by Sinclair Research. It is powered by a Zilog Z80A CPU running at 3.5 MHz and comes with 16 KB or 48 KB of RAM. The ZX Spectrum is known for its compact design and affordability, which helped popularize home computing in the UK. It was particularly noted for its color graphics and extensive library of software, especially games, making it a cultural icon of the 1980s."
+  },
+  {
+    "slug": "tandy-1000",
+    "brandSlug": "tandy",
+    "title": "Tandy 1000",
+    "price": 800,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.5,
+    "reviews": 18,
+    "description": "The Tandy 1000, introduced in 1984 by RadioShack, is a popular IBM PC-compatible computer. It features an Intel 8088 CPU at 4.77 MHz and originally came with 256 KB of RAM, expandable to 640 KB. The Tandy 1000 was designed to be more affordable and user-friendly than IBM's own PCs, and it included enhanced graphics and sound capabilities that made it a favorite for home use, particularly in gaming and education."
+  },
+  {
+    "slug": "amstrad-cpc-464",
+    "brandSlug": "amstrad",
+    "title": "Amstrad CPC 464",
+    "price": 600,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.4,
+    "reviews": 22,
+    "description": "The Amstrad CPC 464, released in 1984, is an 8-bit home computer developed by Amstrad. It features a Zilog Z80A CPU running at 4 MHz, with 64 KB of RAM and an integrated cassette tape deck for data storage. The CPC 464 was known for its robust design and vibrant color graphics, making it popular for gaming and programming. It was bundled with a monitor, which helped it stand out in the market, particularly in Europe."
+  },
+  {
+    "slug": "commodore-pet-2001",
+    "brandSlug": "commodore",
+    "title": "Commodore PET 2001",
+    "price": 1100,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.3,
+    "reviews": 12,
+    "description": "The Commodore PET 2001, introduced in 1977, is one of the first personal computers developed by Commodore. It features a MOS Technology 6502 processor running at 1 MHz, with 4 KB to 32 KB of RAM. The PET 2001 was notable for its all-in-one design, including a built-in keyboard, monitor, and cassette tape drive. It was particularly popular in educational settings and is considered a pioneer in the early personal computing market."
+  },
+  {
+    "slug": "trs-80-model-iii",
+    "brandSlug": "tandy",
+    "title": "TRS-80 Model III",
+    "price": 950,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.4,
+    "reviews": 16,
+    "description": "The TRS-80 Model III, released in 1980, is an 8-bit personal computer developed by Tandy Corporation. It is powered by a Zilog Z80 CPU running at 2.03 MHz and comes with 16 KB to 48 KB of RAM. The Model III was an upgrade to the original TRS-80, featuring a more integrated design and better performance. It was popular in small businesses and educational institutions due to its reliability and ease of use."
+  },
+  {
+    "slug": "apple-lisa",
+    "brandSlug": "apple",
+    "title": "Apple Lisa",
+    "price": 2000,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.0,
+    "reviews": 10,
+    "description": "The Apple Lisa, launched in 1983, is a personal computer developed by Apple Inc. It was one of the first personal computers to offer a graphical user interface (GUI) and a mouse. The Lisa was powered by a Motorola 68000 CPU running at 5 MHz and came with 1 MB of RAM. Despite its innovative features, the Lisa's high price limited its market success. However, it is remembered for paving the way for later GUI-based computers, including the Apple Macintosh."
+  },
+  {
+    "slug": "bbc-micro",
+    "brandSlug": "acorn",
+    "title": "BBC Micro",
+    "price": 700,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 5,
+    "score": 4.8,
+    "reviews": 40,
+    "description": "The BBC Micro, released in 1981, is an 8-bit home computer developed by Acorn Computers for the BBC's Computer Literacy Project. It features a MOS Technology 6502 CPU running at 2 MHz, with 16 KB or 32 KB of RAM. The BBC Micro was known for its robust build quality, excellent BASIC programming language, and expandability. It became widely used in UK schools and was also popular for home use, particularly in programming and education."
+  },
+  {
+    "slug": "kaypro-ii",
+    "brandSlug": "kaypro",
+    "title": "Kaypro II",
+    "price": 1200,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.2,
+    "reviews": 14,
+    "description": "The Kaypro II, launched in 1982, is a portable 8-bit computer developed by Kaypro Corporation. It is powered by a Zilog Z80 CPU running at 2.5 MHz and comes with 64 KB of RAM. The Kaypro II features a sturdy metal case and a built-in 9-inch monochrome monitor, along with two 5.25-inch floppy drives. It was one of the first computers marketed as a 'luggable' and was popular among professionals who needed computing power on the go."
+  },
+  {
+    "slug": "neXT-cube",
+    "brandSlug": "next",
+    "title": "NeXT Cube",
+    "price": 3000,
+    "image": "https://placehold.co/2000x1700",
+    "stars": 4,
+    "score": 4.5,
+    "reviews": 8,
+    "description": "The NeXT Cube, released in 1988 by NeXT Inc., is a high-end workstation designed by Steve Jobs after leaving Apple. It is powered by a Motorola 68030 CPU running at 25 MHz, with 8 MB of RAM expandable to 64 MB. The NeXT Cube featured an advanced operating system, NeXTSTEP, which introduced several innovative concepts, including a graphical user interface and object-oriented programming environment. Despite its high price, it was influential in the development of future computing technologies, including the World Wide Web."
+  }
+]

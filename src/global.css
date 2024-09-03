@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  ::selection {
+    @apply bg-teal-500 text-white;
+  }
+
   html {
     @apply font-body tracking-tight bg-beige-500 text-brown-500;
   }

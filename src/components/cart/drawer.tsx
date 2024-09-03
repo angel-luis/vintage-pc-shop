@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import CartProduct from "@/components/cart/cart-product";
+import CartProduct from "@/components/cart/product";
 import Button from "@/components/common/button";
-import { CartContext } from "@/contexts/cart-context";
+import { CartContext } from "@/contexts/cart";
 import currencyConverter from "@/lib/currency-converter";
 import { ProductCart } from "@/lib/definitions";
 

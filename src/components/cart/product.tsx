@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Button from "@/components/common/button";
 import currencyConverter from "@/lib/currency-converter";
 import { ProductCart, ProductQuantityAction } from "@/lib/definitions";
-
-import Button from "../common/button";
 
 export default function CartProduct({
   product,

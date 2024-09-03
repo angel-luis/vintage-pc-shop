@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-import ProductScore from "@/components/product/product-score";
+import ProductScore from "@/components/product/score";
 import currencyConverter from "@/lib/currency-converter";
 import { Product } from "@/lib/definitions";
 
-import AddToCartButton from "./add-to-cart-button";
+import AddToCartButton from "./add-button";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import ProductCard from "@/components/product/product-card";
-import ShopPagination from "@/components/shop/shop-pagination";
+import ProductCard from "@/components/product/card";
+import ShopPagination from "@/components/shop/pagination";
 import { Product } from "@/lib/definitions";
 
 export default function ShopProductsList({

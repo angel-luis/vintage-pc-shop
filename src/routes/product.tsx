@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import ProductSection from "@/components/product/product-section";
-import { ProductContext } from "@/contexts/product-context";
+import ProductSection from "@/components/product/section";
+import { ProductContext } from "@/contexts/product";
 import { Product } from "@/lib/definitions";
 
 export default function ProductPage() {

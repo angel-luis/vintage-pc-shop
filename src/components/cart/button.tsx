@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import Button from "@/components/common/button";
-import { CartContext } from "@/contexts/cart-context";
+import { CartContext } from "@/contexts/cart";
 
 export default function CartButton({
   handleClick,

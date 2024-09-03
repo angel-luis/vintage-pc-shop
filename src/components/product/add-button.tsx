@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import Button from "@/components/common/button";
-import { CartContext } from "@/contexts/cart-context";
+import { CartContext } from "@/contexts/cart";
 import { Product } from "@/lib/definitions";
 
 export default function AddToCartButton({ product }: { product: Product }) {

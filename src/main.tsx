@@ -6,9 +6,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { CartContextProvider } from "@/contexts/cart-context";
-import { ProductContextProvider } from "@/contexts/product-context";
-import { UserContextProvider } from "@/contexts/user-context";
+import { CartContextProvider } from "@/contexts/cart";
+import { ProductContextProvider } from "@/contexts/product";
+import { UserContextProvider } from "@/contexts/user";
 import AuthenticationPage from "@/routes/authentication";
 import HomePage from "@/routes/home";
 import MainLayout from "@/routes/layouts/main";

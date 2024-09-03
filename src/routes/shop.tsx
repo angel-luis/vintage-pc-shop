@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 
-import ShopProductsList from "@/components/shop/shop-products-list";
-import ShopSideNavigation from "@/components/shop/shop-side-navigation";
-import ShopSortButton from "@/components/shop/shop-sort-button";
-import { ProductContext } from "@/contexts/product-context";
+import ShopProductsList from "@/components/shop/products-list";
+import ShopSideNavigation from "@/components/shop/side-navigation";
+import ShopSortButton from "@/components/shop/sort-button";
+import { ProductContext } from "@/contexts/product";
 import { Brand, Product } from "@/lib/definitions";
 
 export default function ShopPage() {

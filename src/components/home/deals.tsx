@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import ProductCard from "@/components/product/product-card";
-import { ProductContext } from "@/contexts/product-context";
+import ProductCard from "@/components/product/card";
+import { ProductContext } from "@/contexts/product";
 import { Product } from "@/lib/definitions";
 
 export default function HomeDeals() {

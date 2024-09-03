@@ -1,5 +1,5 @@
-import AddToCartButton from "@/components/product/add-to-cart-button";
-import ProductScore from "@/components/product/product-score";
+import AddToCartButton from "@/components/product/add-button";
+import ProductScore from "@/components/product/score";
 import currencyConverter from "@/lib/currency-converter";
 import { Product } from "@/lib/definitions";
 

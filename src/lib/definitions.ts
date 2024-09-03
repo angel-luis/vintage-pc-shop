@@ -8,7 +8,6 @@ export type Product = {
   brandSlug: string;
   title: string;
   price: number;
-  image: string;
   stars: number;
   score: number;
   reviews: number;

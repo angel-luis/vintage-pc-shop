@@ -9,7 +9,10 @@ export default function ProductSection({ product }: { product: Product }) {
       <div className="w95-border max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div className="md:grid md:grid-cols-2 md:gap-8 xl:gap-16">
           <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
-            <img className="w-full" src={product.image} alt="" />
+            <img
+              className="w-full rounded-sm border-2 border-navy-600"
+              src={`/images/products/${product.slug}.jpg`}
+            />
           </div>
 
           <div className="mt-6 sm:mt-8 lg:mt-0">

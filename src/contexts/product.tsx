@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
+//import { addProducts } from "@/data/firebase";
 import ProductData from "@/data/products-mockup.json";
 import { Product } from "@/lib/definitions";
 
@@ -13,6 +14,12 @@ export function ProductContextProvider({
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
+    // Uncomment this for upload products
+    // Remember to add the write rule in Firebase
+    /* (async () => {
+      await addProducts();
+    })(); */
+
     setProducts(ProductData);
   }, []);
 

@@ -1,7 +1,19 @@
 [
   {
+    "slug": "acorn",
+    "title": "Acorn"
+  },
+  {
+    "slug": "amstrad",
+    "title": "Amstrad"
+  },
+  {
     "slug": "apple",
     "title": "Apple"
+  },
+  {
+    "slug": "atari",
+    "title": "Atari"
   },
   {
     "slug": "commodore",
@@ -12,8 +24,8 @@
     "title": "IBM"
   },
   {
-    "slug": "atari",
-    "title": "Atari"
+    "slug": "kaypro",
+    "title": "Kaypro"
   },
   {
     "slug": "next",
@@ -26,17 +38,5 @@
   {
     "slug": "tandy",
     "title": "Tandy"
-  },
-  {
-    "slug": "amstrad",
-    "title": "Amstrad"
-  },
-  {
-    "slug": "bbc",
-    "title": "BBC"
-  },
-  {
-    "slug": "kaypro",
-    "title": "Kaypro"
   }
 ]

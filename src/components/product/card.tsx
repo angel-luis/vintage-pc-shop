@@ -12,7 +12,10 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="w95-border">
         <div className="h-56 w-full">
           <Link to={`/product/${product.slug}`}>
-            <img className="mx-auto h-full" src={product.image} alt="" />
+            <img
+              className="mx-auto h-full rounded-sm border-2 border-navy-600"
+              src={`/images/products/${product.slug}.jpg`}
+            />
           </Link>
         </div>
         <div className="pt-6">

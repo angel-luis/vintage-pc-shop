@@ -27,9 +27,8 @@ export default function CartProduct({
     <div className="flex items-start gap-4 py-4">
       <Link to={`/product/${product.slug}`} className="h-20 w-20 shrink-0">
         <img
-          className="h-full w-full"
-          src={product.image}
-          alt="Product image"
+          className="h-full w-full rounded-sm border-2 border-navy-600"
+          src={`/images/products/${product.slug}.jpg`}
         />
       </Link>
 

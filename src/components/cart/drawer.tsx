@@ -45,7 +45,7 @@ export default function CartDrawer({
         }`}
       >
         <div className="flex-1 space-y-4">
-          <div className="flex items-center justify-between bg-navy-600 text-white">
+          <div className="flex items-center justify-between bg-navy-600 text-white mt-1 mx-1">
             <h3 className="antialiased font-display text-2xl font-semibold rounded-sm px-4">
               Shopping Cart
             </h3>
@@ -123,7 +123,7 @@ export default function CartDrawer({
           </div>
         </div>
 
-        <div className="mt-6 p-3 flex flex-col md:flex-row items-center justify-center gap-4">
+        <div className="p-3 pb-8 md:pb-3 flex flex-col md:flex-row items-center justify-center gap-4">
           <Button style="secondary" onClick={() => setOpen(false)} widthFull>
             Continue Shopping
           </Button>

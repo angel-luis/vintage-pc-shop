@@ -20,3 +20,8 @@ export type ProductCart = Product & {
 };
 
 export type ProductQuantityAction = "increment" | "decrement";
+
+export type Brand = {
+  slug: string;
+  title: string;
+};

@@ -6,9 +6,8 @@ export default function HomeCTA() {
   return (
     <section className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
       <img
-        className="w-full"
-        src="https://placehold.co/800x450"
-        alt="dashboard image"
+        className="w-full rounded-sm border-2 border-brown-500"
+        src="/images/cta.jpg"
       />
       <div className="mt-4 md:mt-0">
         <h2 className="mb-4 text-5xl antialiased font-display font-bold">

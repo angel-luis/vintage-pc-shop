@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import Button from "@/components/common/button";
 
 export default function ShopSortButton({
-  sortByPricing,
+  setSortOrder,
 }: {
-  sortByPricing: (filter: "asc" | "desc") => void;
+  setSortOrder: (filter: "asc" | "desc" | null) => void;
 }) {
   const sortRef = useRef<HTMLDivElement>(null);
 
@@ -15,6 +15,11 @@ export default function ShopSortButton({
     if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
       setIsSortOpen(false);
     }
+  }
+
+  function handleClickButton(filter: "asc" | "desc" | null) {
+    setSortOrder(filter);
+    setIsSortOpen(false);
   }
 
   useEffect(() => {
@@ -74,18 +79,25 @@ export default function ShopSortButton({
           className="absolute w95-border w-full sm:w-48 sm:right-0 top-8 z-10 mt-2 rounded-sm bg-gray-200 p-2 shadow-lg space-y-2"
         >
           <Button
-            onClick={() => sortByPricing("desc")}
+            onClick={() => handleClickButton("desc")}
             style="secondary"
             widthFull
           >
             Higher price
           </Button>
           <Button
-            onClick={() => sortByPricing("asc")}
+            onClick={() => handleClickButton("asc")}
             style="secondary"
             widthFull
           >
             Lower price
+          </Button>
+          <Button
+            onClick={() => handleClickButton(null)}
+            style="secondary"
+            widthFull
+          >
+            Default
           </Button>
         </div>
       )}

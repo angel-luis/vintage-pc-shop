@@ -1,33 +1,39 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import ShopProductsList from "@/components/shop/shop-products-list";
 import ShopSideNavigation from "@/components/shop/shop-side-navigation";
 import ShopSortButton from "@/components/shop/shop-sort-button";
 import { ProductContext } from "@/contexts/product-context";
-import { Product } from "@/lib/definitions";
+import { Brand, Product } from "@/lib/definitions";
 
 export default function ShopPage() {
-  const products = useContext(ProductContext);
+  const products = useContext<Product[]>(ProductContext);
 
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc" | null>(null);
+  const [searchTitle, setSearchTitle] = useState("");
+  const [checkedBrands, setCheckedBrands] = useState<Brand[]>([]);
 
-  useEffect(() => {
-    setFilteredProducts(products);
-  }, [products]);
-
-  function sortByPricing(filter: "asc" | "desc") {
-    if (filter === "asc") {
-      setFilteredProducts([...products].sort((a, b) => a.price - b.price));
-    } else {
-      setFilteredProducts([...products].sort((a, b) => b.price - a.price));
-    }
-  }
-
-  function searchByTitle(title: string) {
-    setFilteredProducts(
-      products.filter((product) => product.title.toLowerCase().includes(title))
-    );
-  }
+  const filteredProducts = products
+    .filter((product) => {
+      if (searchTitle !== "") {
+        return product.title.toLowerCase().includes(searchTitle.toLowerCase());
+      }
+      return true;
+    })
+    .filter((product) => {
+      if (checkedBrands.length > 0) {
+        return checkedBrands.some((brand) => brand.slug === product.brandSlug);
+      }
+      return true;
+    })
+    .sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.price - b.price;
+      } else if (sortOrder === "desc") {
+        return b.price - a.price;
+      }
+      return 0;
+    });
 
   return (
     <section className="py-4 antialiased md:py-8">
@@ -54,11 +60,14 @@ export default function ShopPage() {
               All Computers
             </h2>
           </div>
-          <ShopSortButton sortByPricing={sortByPricing} />
+          <ShopSortButton setSortOrder={setSortOrder} />
         </div>
 
         <div className="flex flex-col md:flex-row gap-4">
-          <ShopSideNavigation searchByTitle={searchByTitle} />
+          <ShopSideNavigation
+            setSearchTitle={setSearchTitle}
+            setCheckedBrandsShop={setCheckedBrands}
+          />
           <ShopProductsList products={filteredProducts} />
         </div>
       </div>

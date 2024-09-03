@@ -1,29 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Button from "@/components//common/button";
 import Input from "@/components/common/input";
 import BrandsData from "@/data/brands.json";
-
-type Brand = {
-  slug: string;
-  title: string;
-};
+import { Brand } from "@/lib/definitions";
 
 export default function ShopSideNavigation({
-  searchByTitle,
+  setSearchTitle,
+  setCheckedBrandsShop,
 }: {
-  searchByTitle: (title: string) => void;
+  setSearchTitle: (title: string) => void;
+  setCheckedBrandsShop: (brands: Brand[]) => void;
 }) {
   const [showFilters, setShowFilters] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [checkedBrands, setCheckedBrands] = useState<Brand[]>([]);
 
   function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     setSearchValue(value);
-    searchByTitle(value);
+    setSearchTitle(value);
+  }
+
+  function handleCheckingBrands(
+    event: React.ChangeEvent<HTMLInputElement>,
+    brand: Brand
+  ) {
+    const isChecked = event.target.checked;
+
+    if (isChecked) {
+      setCheckedBrands([
+        ...checkedBrands,
+        { slug: brand.slug, title: brand.title } as Brand,
+      ]);
+    } else {
+      setCheckedBrands(
+        checkedBrands.filter((checkedBrand) => checkedBrand.slug !== brand.slug)
+      );
+    }
   }
 
   const brands: Brand[] = BrandsData;
+
+  useEffect(() => {
+    setCheckedBrandsShop(checkedBrands);
+  }, [checkedBrands, setCheckedBrandsShop]);
 
   return (
     <div>
@@ -95,6 +116,13 @@ export default function ShopSideNavigation({
                 className="w-4 h-4 cursor-pointer"
                 id={brand.slug}
                 type="checkbox"
+                value={brand.slug}
+                onChange={(e) =>
+                  handleCheckingBrands(e, {
+                    slug: brand.slug,
+                    title: brand.title,
+                  } as Brand)
+                }
               />
               <label className="ml-2 cursor-pointer" htmlFor={brand.slug}>
                 {brand.title}

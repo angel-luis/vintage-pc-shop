@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 
 //import { addProducts } from "@/data/firebase";
-import ProductData from "@/data/products-mockup.json";
+import { getProducts } from "@/data/firebase";
 import { Product } from "@/lib/definitions";
 
 export const ProductContext = createContext([] as Product[]);
@@ -20,7 +20,10 @@ export function ProductContextProvider({
       await addProducts();
     })(); */
 
-    setProducts(ProductData);
+    (async () => {
+      const products = await getProducts();
+      setProducts(products);
+    })();
   }, []);
 
   return (

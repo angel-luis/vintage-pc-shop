@@ -1,5 +1,13 @@
 import { User } from "firebase/auth";
-import { doc, getDoc, setDoc, writeBatch } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  writeBatch,
+} from "firebase/firestore";
 
 import { db } from "@/data/firebase/config";
 import ProductsData from "@/data/products-upload.json";
@@ -35,4 +43,17 @@ export async function addProducts() {
   } catch (error) {
     console.log("error", error);
   }
+}
+
+export async function getProducts() {
+  const q = query(collection(db, "products"));
+  const querySnapshot = await getDocs(q);
+
+  const products: Product[] = [];
+
+  querySnapshot.forEach((doc) => {
+    products.push(doc.data() as Product);
+  });
+
+  return products;
 }

@@ -6,7 +6,7 @@ import { UserContext } from "@/contexts/user";
 import { handleSignOut } from "@/data/firebase";
 
 export default function MyAccountPage() {
-  const { user } = useContext(UserContext);
+  const user = useContext(UserContext);
 
   if (!user) {
     return <Navigate to="/authentication" />;

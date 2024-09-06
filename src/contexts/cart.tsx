@@ -1,105 +1,47 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
 
-import { Product, ProductCart, ProductQuantityAction } from "@/lib/definitions";
+import { ProductWithQuantity } from "@/lib/definitions";
 
-type CartContextType = {
-  cartProducts: ProductCart[];
-  setCartProducts: React.Dispatch<React.SetStateAction<ProductCart[]>>;
-  handleRemoveProduct: (product: Product) => void;
-  handleAddToCart: (product: Product) => void;
-  handleQuantityProduct: (
-    product: ProductCart,
-    action: ProductQuantityAction
-  ) => void;
+type CartState = {
+  cartProducts: ProductWithQuantity[];
   isDrawerOpen: boolean;
-  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const CartContext = createContext<CartContextType>({
-  cartProducts: [],
-  setCartProducts: () => {},
-  handleRemoveProduct: () => {},
-  handleAddToCart: () => {},
-  handleQuantityProduct: () => {},
-  isDrawerOpen: false,
-  setDrawerOpen: () => {},
-});
+type CartContextType = {
+  cartState: CartState;
+  cartDispatcher: React.Dispatch<CartAction>;
+};
+
+export const CartContext = createContext<CartContextType | null>(null);
+
+type CartAction =
+  | { type: "UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }
+  | { type: "TOOGLE_DRAWER"; payload: boolean };
+
+function cartReducer(state: CartState, action: CartAction) {
+  switch (action.type) {
+    case "UPDATE_CART_PRODUCTS":
+      return { ...state, cartProducts: action.payload };
+    case "TOOGLE_DRAWER":
+      return { ...state, isDrawerOpen: action.payload };
+    default:
+      throw new Error(`Not a valid cart action! <See contexts/cart.tsx>`);
+  }
+}
 
 export function CartContextProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
-
-  const [cartProducts, setCartProducts] = useState<ProductCart[]>([]);
-
-  function handleRemoveProduct(product: Product) {
-    const newCartProducts = cartProducts.filter(
-      (cartProduct) => cartProduct.slug !== product.slug
-    );
-
-    setCartProducts(newCartProducts);
-  }
-
-  function handleAddToCart(product: Product) {
-    // Check if product is already in cart
-    const productInCart = cartProducts.find(
-      (cartProduct) => cartProduct.slug === product.slug
-    );
-
-    // If product is already in cart, increase quantity
-    if (productInCart) {
-      const newCartProducts = cartProducts.map((cartProduct) => {
-        if (cartProduct.slug === product.slug) {
-          return { ...cartProduct, quantity: cartProduct.quantity + 1 };
-        }
-        return cartProduct;
-      });
-
-      setCartProducts(newCartProducts);
-    } else {
-      // If product is not in cart, add it
-      setCartProducts((prev) => [...prev, { ...product, quantity: 1 }]);
-    }
-
-    setDrawerOpen(true);
-  }
-
-  function handleQuantityProduct(
-    product: ProductCart,
-    action: ProductQuantityAction
-  ) {
-    if (action === "increment") {
-      const newCartProducts = cartProducts.map((cartProduct) => {
-        if (cartProduct.slug === product.slug) {
-          return { ...cartProduct, quantity: cartProduct.quantity + 1 };
-        }
-        return cartProduct;
-      });
-
-      setCartProducts(newCartProducts);
-    } else {
-      if (product.quantity > 1) {
-        const newCartProducts = cartProducts.map((cartProduct) => {
-          if (cartProduct.slug === product.slug) {
-            return { ...cartProduct, quantity: cartProduct.quantity - 1 };
-          }
-          return cartProduct;
-        });
-        setCartProducts(newCartProducts);
-      }
-    }
-  }
+  const [cartState, cartDispatcher] = useReducer(cartReducer, {
+    cartProducts: [],
+    isDrawerOpen: false,
+  });
 
   const providerValue: CartContextType = {
-    cartProducts,
-    setCartProducts,
-    handleRemoveProduct,
-    handleAddToCart,
-    handleQuantityProduct,
-    isDrawerOpen,
-    setDrawerOpen,
+    cartState,
+    cartDispatcher,
   };
 
   return (

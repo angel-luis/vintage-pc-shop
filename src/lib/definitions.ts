@@ -14,7 +14,7 @@ export type Product = {
   description: string;
 };
 
-export type ProductCart = Product & {
+export type ProductWithQuantity = Product & {
   quantity: number;
 };
 

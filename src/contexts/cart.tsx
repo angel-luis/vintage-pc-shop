@@ -12,7 +12,9 @@ type CartContextType = {
   cartDispatcher: React.Dispatch<CartAction>;
 };
 
-export const CartContext = createContext<CartContextType | null>(null);
+export const CartContext = createContext<CartContextType>(
+  {} as CartContextType
+);
 
 type CartAction =
   | { type: "UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }

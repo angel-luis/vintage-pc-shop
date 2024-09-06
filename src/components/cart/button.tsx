@@ -4,11 +4,12 @@ import Button from "@/components/common/button";
 import { CartContext } from "@/contexts/cart";
 
 export default function CartButton({
-  handleClick,
+  toggleDrawer,
 }: {
-  handleClick: () => void;
+  toggleDrawer: () => void;
 }) {
-  const { cartProducts } = useContext(CartContext);
+  const { cartState } = useContext(CartContext);
+  const { cartProducts } = cartState;
 
   const totalProducts = cartProducts.reduce(
     (total, product) => total + product.quantity,
@@ -17,7 +18,7 @@ export default function CartButton({
 
   return (
     <>
-      <Button onClick={handleClick} style="tertiary">
+      <Button onClick={toggleDrawer} style="tertiary">
         <img className="h-5" src="/icons/shopping-cart.png" />
         <span className="text-2xl">{totalProducts}</span>
       </Button>

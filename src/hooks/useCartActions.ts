@@ -1,7 +1,11 @@
 import { useContext } from "react";
 
 import { CartContext } from "@/contexts/cart";
-import { handleAddToCart, handleRemoveFromCart, handleUpdateQuantity } from "@/lib/cart-utils";
+import {
+  handleAddToCart,
+  handleRemoveFromCart,
+  handleUpdateQuantity,
+} from "@/lib/cart-utils";
 import { Product, ProductQuantityAction } from "@/lib/definitions";
 
 export default function useCartActions() {
@@ -10,7 +14,7 @@ export default function useCartActions() {
     throw new Error("Can't use this hook outside CartProvider!");
 
   const { cartState, cartDispatcher } = cartContext;
-  const { cartProducts } = cartState;
+  const { cartProducts, isDrawerOpen } = cartState;
 
   function addToCart(product: Product) {
     const newCartProducts = handleAddToCart(cartProducts, product);
@@ -28,5 +32,10 @@ export default function useCartActions() {
     cartDispatcher({ type: "UPDATE_CART_PRODUCTS", payload: newCartProducts });
   }
 
-  return { addToCart, removeFromCart, updateQuantity };
+  function toggleDrawer() {
+    console.log("isDrawerOpen", isDrawerOpen);
+    cartDispatcher({ type: "TOOGLE_DRAWER", payload: !isDrawerOpen });
+  }
+
+  return { addToCart, removeFromCart, updateQuantity, toggleDrawer };
 }

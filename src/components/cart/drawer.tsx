@@ -4,24 +4,31 @@ import { Link, useLocation } from "react-router-dom";
 import CartProduct from "@/components/cart/product";
 import Button from "@/components/common/button";
 import { CartContext } from "@/contexts/cart";
+import useCartActions from "@/hooks/useCartActions";
 import currencyConverter from "@/lib/currency-converter";
-import { ProductCart } from "@/lib/definitions";
+import { ProductWithQuantity } from "@/lib/definitions";
 
 export default function CartDrawer({
   isOpen,
-  setOpen,
+  toggleDrawer,
 }: {
   isOpen: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleDrawer: () => void;
 }) {
-  const { cartProducts, handleRemoveProduct, handleQuantityProduct } =
-    useContext(CartContext);
+  const { cartState } = useContext(CartContext);
+  const { cartProducts } = cartState;
+  const { removeFromCart, updateQuantity } = useCartActions();
 
+  // Close drawer when location changes (when clicking on a product)
   const location = useLocation();
 
   useEffect(() => {
-    setOpen(false);
-  }, [location, setOpen]);
+    if (isOpen) {
+      toggleDrawer();
+    }
+    // Don't include the rest of dependencies because it will trigger every time
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   const totalCost = cartProducts.reduce(
     (total, product) => total + product.price * product.quantity,
@@ -37,7 +44,7 @@ export default function CartDrawer({
         className={`fixed z-40 inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
-        onClick={() => setOpen(false)}
+        onClick={toggleDrawer}
       ></div>
       <div
         className={`fixed top-0 right-0 z-40 flex h-screen w-full max-w-md flex-col justify-between space-y-4 overflow-y-auto bg-gray-200 p-1 transform transition-transform duration-300 ${
@@ -54,7 +61,7 @@ export default function CartDrawer({
               type="button"
               style="secondary"
               aria-label="Close cart"
-              onClick={() => setOpen(false)}
+              onClick={toggleDrawer}
             >
               <svg
                 className="inline-block h-5 w-5"
@@ -78,7 +85,7 @@ export default function CartDrawer({
 
           <div className="px-3">
             {cartProducts.length > 0 ? (
-              cartProducts.map((product: ProductCart, index) => (
+              cartProducts.map((product: ProductWithQuantity, index) => (
                 <div
                   key={product.slug}
                   className={`border-b border-gray-300 ${
@@ -87,8 +94,8 @@ export default function CartDrawer({
                 >
                   <CartProduct
                     product={product}
-                    handleRemoveProduct={handleRemoveProduct}
-                    handleQuantityProduct={handleQuantityProduct}
+                    removeFromCart={removeFromCart}
+                    updateQuantity={updateQuantity}
                   />
                 </div>
               ))
@@ -124,11 +131,11 @@ export default function CartDrawer({
         </div>
 
         <div className="p-3 pb-8 md:pb-3 flex flex-col md:flex-row items-center justify-center gap-4">
-          <Button style="secondary" onClick={() => setOpen(false)} widthFull>
+          <Button style="secondary" onClick={toggleDrawer} widthFull>
             Continue Shopping
           </Button>
           {cartProducts.length > 0 && (
-            <Button style="primary" onClick={() => setOpen(false)} widthFull>
+            <Button style="primary" onClick={toggleDrawer} widthFull>
               <Link to="/checkout">Checkout</Link>
             </Button>
           )}

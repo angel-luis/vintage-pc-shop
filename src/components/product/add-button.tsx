@@ -1,14 +1,12 @@
-import { useContext } from "react";
-
 import Button from "@/components/common/button";
-import { CartContext } from "@/contexts/cart";
+import useCartActions from "@/hooks/useCartActions";
 import { Product } from "@/lib/definitions";
 
 export default function AddToCartButton({ product }: { product: Product }) {
-  const { handleAddToCart } = useContext(CartContext);
+  const { addToCart } = useCartActions();
 
   return (
-    <Button style="tertiary" onClick={() => handleAddToCart(product)} widthFull>
+    <Button style="tertiary" onClick={() => addToCart(product)} widthFull>
       <img src="/icons/add-to-cart.png" className="-ms-2 me-2 h-6 w-6" />
       Add to cart
     </Button>

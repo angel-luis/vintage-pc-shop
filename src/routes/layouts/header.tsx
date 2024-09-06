@@ -6,9 +6,11 @@ import CartDrawer from "@/components/cart/drawer";
 import Button from "@/components/common/button";
 import Logo from "@/components/common/logo";
 import { CartContext } from "@/contexts/cart";
+import useCartActions from "@/hooks/useCartActions";
 
 export default function HeaderLayout() {
-  const { isDrawerOpen, setDrawerOpen } = useContext(CartContext);
+  const { cartState } = useContext(CartContext);
+  const { toggleDrawer } = useCartActions();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menuLinks = [
@@ -52,8 +54,11 @@ export default function HeaderLayout() {
               <img className="h-8" src="/icons/menu.png" />
             </Button>
           </div>
-          <CartButton handleClick={() => setDrawerOpen(!isDrawerOpen)} />
-          <CartDrawer isOpen={isDrawerOpen} setOpen={setDrawerOpen} />
+          <CartButton toggleDrawer={toggleDrawer} />
+          <CartDrawer
+            isOpen={cartState.isDrawerOpen}
+            toggleDrawer={toggleDrawer}
+          />
         </nav>
       </div>
       {isMobileMenuOpen && (

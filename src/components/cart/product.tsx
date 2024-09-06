@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 import Button from "@/components/common/button";
 import currencyConverter from "@/lib/currency-converter";
-import { ProductCart, ProductQuantityAction } from "@/lib/definitions";
+import { ProductQuantityAction, ProductWithQuantity } from "@/lib/definitions";
 
 export default function CartProduct({
   product,
-  handleRemoveProduct,
-  handleQuantityProduct,
+  removeFromCart,
+  updateQuantity,
 }: {
-  product: ProductCart;
-  handleRemoveProduct: (product: ProductCart) => void;
-  handleQuantityProduct: (
-    product: ProductCart,
+  product: ProductWithQuantity;
+  removeFromCart: (product: ProductWithQuantity) => void;
+  updateQuantity: (
+    product: ProductWithQuantity,
     action: ProductQuantityAction
   ) => void;
 }) {
@@ -48,7 +48,7 @@ export default function CartProduct({
             <div className="relative flex w-32 items-center">
               <Button
                 type="button"
-                onClick={() => handleQuantityProduct(product, "decrement")}
+                onClick={() => updateQuantity(product, "decrement")}
                 style="secondary"
               >
                 <div className="h-6 items-center content-center">
@@ -72,7 +72,7 @@ export default function CartProduct({
               <div className="w-10 text-center">{quantity}</div>
               <Button
                 type="button"
-                onClick={() => handleQuantityProduct(product, "increment")}
+                onClick={() => updateQuantity(product, "increment")}
                 style="secondary"
               >
                 <div className="h-6 items-center content-center">
@@ -104,7 +104,7 @@ export default function CartProduct({
             type="button"
             style="secondary"
             aria-label="Remove item"
-            onClick={() => handleRemoveProduct(product)}
+            onClick={() => removeFromCart(product)}
           >
             <img className="h-5" src="/icons/w98-recycle-bin.png" />
           </Button>

@@ -6,11 +6,11 @@ export default function FooterLayout() {
   const footerLinks = [
     {
       name: "Terms & Conditions",
-      path: "/terms-and-conditions",
+      path: "/about",
     },
     {
       name: "Contact",
-      path: "/contact",
+      path: "/about",
     },
   ];
 

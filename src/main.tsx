@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CartContextProvider } from "@/contexts/cart";
 import { ProductContextProvider } from "@/contexts/product";
 import { UserContextProvider } from "@/contexts/user";
+import AboutPage from "@/routes/about";
 import AuthenticationPage from "@/routes/authentication";
 import HomePage from "@/routes/home";
 import MainLayout from "@/routes/layouts/main";
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "product/:slug",
         element: <ProductPage />,
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
       },
     ],
   },

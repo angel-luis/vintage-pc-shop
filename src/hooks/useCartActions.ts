@@ -1,11 +1,7 @@
 import { useContext } from "react";
 
 import { CartContext } from "@/contexts/cart";
-import {
-  handleAddToCart,
-  handleRemoveFromCart,
-  handleUpdateQuantity,
-} from "@/lib/cart-utils";
+import { handleAddToCart, handleRemoveFromCart, handleUpdateQuantity } from "@/lib/cart-utils";
 import { Product, ProductQuantityAction } from "@/lib/definitions";
 
 export default function useCartActions() {
@@ -33,7 +29,6 @@ export default function useCartActions() {
   }
 
   function toggleDrawer() {
-    console.log("isDrawerOpen", isDrawerOpen);
     cartDispatcher({ type: "TOOGLE_DRAWER", payload: !isDrawerOpen });
   }
 

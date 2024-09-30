@@ -13,6 +13,7 @@ import AuthenticationPage from "@/routes/authentication";
 import HomePage from "@/routes/home";
 import MainLayout from "@/routes/layouts/main";
 import MyAccountPage from "@/routes/my-account";
+import NoMatchPage from "@/routes/no-match";
 import ProductPage from "@/routes/product";
 import ShopPage from "@/routes/shop";
 
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <NoMatchPage />,
     children: [
       {
         index: true,

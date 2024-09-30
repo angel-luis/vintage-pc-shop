@@ -2,14 +2,12 @@ import { useContext } from "react";
 
 import Button from "@/components/common/button";
 import { CartContext } from "@/contexts/cart";
+import useCartActions from "@/hooks/useCartActions";
 
-export default function CartButton({
-  toggleDrawer,
-}: {
-  toggleDrawer: () => void;
-}) {
+export default function CartButton() {
   const { cartState } = useContext(CartContext);
   const { cartProducts } = cartState;
+  const { toggleDrawer } = useCartActions();
 
   const totalProducts = cartProducts.reduce(
     (total, product) => total + product.quantity,

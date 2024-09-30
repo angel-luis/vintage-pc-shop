@@ -5,10 +5,8 @@ import CartButton from "@/components/cart/button";
 import CartDrawer from "@/components/cart/drawer";
 import Button from "@/components/common/button";
 import Logo from "@/components/common/logo";
-import useCartActions from "@/hooks/useCartActions";
 
 export default function HeaderLayout() {
-  const { toggleDrawer } = useCartActions();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menuLinks = [
@@ -52,8 +50,8 @@ export default function HeaderLayout() {
               <img className="h-8" src="/icons/menu.png" />
             </Button>
           </div>
-          <CartButton toggleDrawer={toggleDrawer} />
-          <CartDrawer toggleDrawer={toggleDrawer} />
+          <CartButton />
+          <CartDrawer />
         </nav>
       </div>
       {isMobileMenuOpen && (

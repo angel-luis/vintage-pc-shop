@@ -8,14 +8,10 @@ import useCartActions from "@/hooks/useCartActions";
 import currencyConverter from "@/lib/currency-converter";
 import { ProductWithQuantity } from "@/lib/definitions";
 
-export default function CartDrawer({
-  toggleDrawer,
-}: {
-  toggleDrawer: () => void;
-}) {
+export default function CartDrawer() {
   const { cartState } = useContext(CartContext);
   const { cartProducts, isDrawerOpen } = cartState;
-  const { removeFromCart, updateQuantity } = useCartActions();
+  const { removeFromCart, updateQuantity, toggleDrawer } = useCartActions();
 
   // Close drawer when location changes (when clicking on a product)
   const location = useLocation();

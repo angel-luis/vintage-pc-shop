@@ -24,3 +24,17 @@ export type Brand = {
   slug: string;
   title: string;
 };
+
+export type CartState = {
+  cartProducts: ProductWithQuantity[];
+  isDrawerOpen: boolean;
+};
+
+export type CartContextType = {
+  cartState: CartState;
+  cartDispatcher: React.Dispatch<CartAction>;
+};
+
+export type CartAction =
+  | { type: "UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }
+  | { type: "TOOGLE_DRAWER"; payload: boolean };

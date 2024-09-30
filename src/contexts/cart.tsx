@@ -1,24 +1,10 @@
 import { createContext, useReducer } from "react";
 
-import { ProductWithQuantity } from "@/lib/definitions";
-
-type CartState = {
-  cartProducts: ProductWithQuantity[];
-  isDrawerOpen: boolean;
-};
-
-type CartContextType = {
-  cartState: CartState;
-  cartDispatcher: React.Dispatch<CartAction>;
-};
+import { CartAction, CartContextType, CartState } from "@/lib/definitions";
 
 export const CartContext = createContext<CartContextType>(
   {} as CartContextType
 );
-
-type CartAction =
-  | { type: "UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }
-  | { type: "TOOGLE_DRAWER"; payload: boolean };
 
 function cartReducer(state: CartState, action: CartAction) {
   switch (action.type) {

@@ -3,9 +3,10 @@ import { useContext } from "react";
 import Button from "@/components/common/button";
 import { CartContext } from "@/contexts/cart";
 import useCartActions from "@/hooks/useCartActions";
+import { CartContextType } from "@/lib/definitions";
 
 export default function CartButton() {
-  const { cartState } = useContext(CartContext);
+  const { cartState } = useContext<CartContextType>(CartContext);
   const { cartProducts } = cartState;
   const { toggleDrawer } = useCartActions();
 

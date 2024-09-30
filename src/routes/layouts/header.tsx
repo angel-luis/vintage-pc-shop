@@ -1,15 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import CartButton from "@/components/cart/button";
 import CartDrawer from "@/components/cart/drawer";
 import Button from "@/components/common/button";
 import Logo from "@/components/common/logo";
-import { CartContext } from "@/contexts/cart";
 import useCartActions from "@/hooks/useCartActions";
 
 export default function HeaderLayout() {
-  const { cartState } = useContext(CartContext);
   const { toggleDrawer } = useCartActions();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -55,10 +53,7 @@ export default function HeaderLayout() {
             </Button>
           </div>
           <CartButton toggleDrawer={toggleDrawer} />
-          <CartDrawer
-            isOpen={cartState.isDrawerOpen}
-            toggleDrawer={toggleDrawer}
-          />
+          <CartDrawer toggleDrawer={toggleDrawer} />
         </nav>
       </div>
       {isMobileMenuOpen && (

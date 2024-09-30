@@ -9,21 +9,19 @@ import currencyConverter from "@/lib/currency-converter";
 import { ProductWithQuantity } from "@/lib/definitions";
 
 export default function CartDrawer({
-  isOpen,
   toggleDrawer,
 }: {
-  isOpen: boolean;
   toggleDrawer: () => void;
 }) {
   const { cartState } = useContext(CartContext);
-  const { cartProducts } = cartState;
+  const { cartProducts, isDrawerOpen } = cartState;
   const { removeFromCart, updateQuantity } = useCartActions();
 
   // Close drawer when location changes (when clicking on a product)
   const location = useLocation();
 
   useEffect(() => {
-    if (isOpen) {
+    if (isDrawerOpen) {
       toggleDrawer();
     }
     // Don't include the rest of dependencies because it will trigger every time
@@ -42,13 +40,13 @@ export default function CartDrawer({
     <>
       <div
         className={`fixed z-40 inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          isDrawerOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={toggleDrawer}
       ></div>
       <div
         className={`fixed top-0 right-0 z-40 flex h-screen w-full max-w-md flex-col justify-between space-y-4 overflow-y-auto bg-gray-200 p-1 transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isDrawerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex-1 space-y-4">

@@ -7,8 +7,10 @@ export type UserAction = {
   payload: User | null;
 };
 
+const initialState = null;
+
 export default function userReducer(
-  state: User | null = null,
+  state: User | null = initialState,
   action: UserAction
 ) {
   switch (action.type) {

@@ -1,12 +1,12 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 import Button from "@/components/common/button";
-import { UserContext } from "@/contexts/user";
 import { handleSignOut } from "@/data/firebase";
+import { getUser } from "@/store/user/selector";
 
 export default function MyAccountPage() {
-  const user = useContext(UserContext);
+  const user = useSelector(getUser);
 
   if (!user) {
     return <Navigate to="/authentication" />;

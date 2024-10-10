@@ -13,10 +13,10 @@ export type RootState = {
   cart: CartState;
 };
 
-export type UserActionTypes = "SET_USER";
+export type UserActionTypes = "user/SET_USER";
 
-export type ProductActionTypes = "SET_PRODUCTS";
+export type ProductActionTypes = "products/SET_PRODUCTS";
 
 export type CartAction =
-  | { type: "UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }
-  | { type: "SET_DRAWER_OPEN"; payload: boolean };
+  | { type: "cart/UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }
+  | { type: "cart/SET_DRAWER_OPEN"; payload: boolean };

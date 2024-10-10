@@ -10,9 +10,9 @@ export default function cartReducer(
   action: CartAction
 ) {
   switch (action.type) {
-    case "UPDATE_CART_PRODUCTS":
+    case "cart/UPDATE_CART_PRODUCTS":
       return { ...state, cartProducts: action.payload };
-    case "SET_DRAWER_OPEN":
+    case "cart/SET_DRAWER_OPEN":
       return { ...state, isDrawerOpen: action.payload };
     default:
       return state;

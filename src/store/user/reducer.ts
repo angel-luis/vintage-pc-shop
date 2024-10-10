@@ -14,7 +14,7 @@ export default function userReducer(
   action: UserAction
 ) {
   switch (action.type) {
-    case "SET_USER":
+    case "user/SET_USER":
       return action.payload;
     default:
       return state;

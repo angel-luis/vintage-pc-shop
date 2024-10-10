@@ -13,7 +13,7 @@ export default function productReducer(
   action: ProductAction
 ) {
   switch (action.type) {
-    case "SET_PRODUCTS":
+    case "products/SET_PRODUCTS":
       return action.payload;
     default:
       return state;

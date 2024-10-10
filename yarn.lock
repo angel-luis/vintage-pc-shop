@@ -3384,6 +3384,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"redux-persist@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "redux-persist@npm:6.0.0"
+  peerDependencies:
+    redux: ">4.0.0"
+  checksum: 10c0/8242d265ab8d28bbc95cf2dc2a05b869eb67aa309b1ed08163c926f3af56dd8eb1ea62118286083461b8ef2024d3b349fd264e5a62a70eb2e74d068c832d5bf2
+  languageName: node
+  linkType: hard
+
 "redux@npm:^5.0.0, redux@npm:^5.0.1":
   version: 5.0.1
   resolution: "redux@npm:5.0.1"
@@ -3963,6 +3972,7 @@ __metadata:
     react-router-dom: "npm:^6.26.1"
     redux: "npm:^5.0.1"
     redux-logger: "npm:^3.0.6"
+    redux-persist: "npm:^6.0.0"
     reselect: "npm:^5.1.1"
     tailwindcss: "npm:^3.4.10"
     typescript: "npm:^5.5.3"

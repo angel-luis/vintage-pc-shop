@@ -2,6 +2,7 @@ import { User } from "firebase/auth";
 
 import { Product, ProductWithQuantity } from "@/lib/definitions";
 
+// State
 export type CartState = {
   cartProducts: ProductWithQuantity[];
   isDrawerOpen: boolean;
@@ -13,10 +14,19 @@ export type RootState = {
   cart: CartState;
 };
 
-export type UserActionTypes = "user/SET_USER";
+// Actions
+export type UserAction = {
+  type: "user/SET_USER";
+  payload: User | null;
+};
 
-export type ProductActionTypes = "products/SET_PRODUCTS";
+export type ProductAction = {
+  type: "products/SET_PRODUCTS";
+  payload: Product[];
+};
 
 export type CartAction =
   | { type: "cart/UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }
   | { type: "cart/SET_DRAWER_OPEN"; payload: boolean };
+
+export type RootAction = UserAction | ProductAction | CartAction;

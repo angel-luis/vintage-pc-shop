@@ -6,6 +6,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
 
 import AboutPage from "@/routes/about";
 import AuthenticationPage from "@/routes/authentication";
@@ -15,7 +16,7 @@ import MyAccountPage from "@/routes/my-account";
 import NoMatchPage from "@/routes/no-match";
 import ProductPage from "@/routes/product";
 import ShopPage from "@/routes/shop";
-import { store } from "@/store/store";
+import { persistor, store } from "@/store/store";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </StrictMode>
 );

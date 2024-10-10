@@ -1,11 +1,6 @@
 import { User } from "firebase/auth";
 
-import { UserActionTypes } from "@/store/types";
-
-export type UserAction = {
-  type: UserActionTypes;
-  payload: User | null;
-};
+import { UserAction } from "@/store/types";
 
 const initialState = null;
 

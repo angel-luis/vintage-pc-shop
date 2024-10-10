@@ -1,12 +1,7 @@
 import { Product } from "@/lib/definitions";
-import { ProductActionTypes } from "@/store/types";
+import { ProductAction } from "@/store/types";
 
 const initialState: Product[] = [];
-
-type ProductAction = {
-  type: ProductActionTypes;
-  payload: Product[];
-};
 
 export default function productReducer(
   state: Product[] = initialState,

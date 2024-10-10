@@ -20,7 +20,7 @@ export default function FooterLayout() {
         <Logo />
         <div className="flex gap-4 text-sm">
           {footerLinks.map((link) => (
-            <Link key={link.path} to={link.path} className="hover:underline">
+            <Link key={link.name} to={link.path} className="hover:underline">
               {link.name}
             </Link>
           ))}

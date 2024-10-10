@@ -10,7 +10,14 @@ const middlewares = [
   import.meta.env.VITE_ENVIRONMENT === "development" && logger,
 ].filter(Boolean) as Middleware[];
 
-const composeEnhancers = compose(applyMiddleware(...middlewares));
+// Use Redux DevTools Extension only in development environment
+const composeEnhancer =
+  (import.meta.env.VITE_ENVIRONMENT !== "production" &&
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
+const composeEnhancers = composeEnhancer(applyMiddleware(...middlewares));
 
 const persistConfig = {
   key: "root",

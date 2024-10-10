@@ -6,7 +6,6 @@ import { getCartProducts } from "@/store/cart/selector";
 
 export default function CartButton() {
   const cartProducts = useSelector(getCartProducts);
-  console.log("cartProducts", cartProducts);
   const { toggleDrawer } = useCartActions();
 
   const totalProducts = cartProducts.reduce(

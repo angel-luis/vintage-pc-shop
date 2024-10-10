@@ -1,11 +1,14 @@
-import { applyMiddleware, compose, createStore } from "redux";
+import { applyMiddleware, compose, createStore, Middleware } from "redux";
 import logger from "redux-logger";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import { rootReducer } from "@/store/reducer";
 
-const middlewares = [logger];
+// Show logger only in development environment
+const middlewares = [
+  import.meta.env.VITE_ENVIRONMENT === "development" && logger,
+].filter(Boolean) as Middleware[];
 
 const composeEnhancers = compose(applyMiddleware(...middlewares));
 

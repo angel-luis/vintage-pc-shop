@@ -1,4 +1,15 @@
+import { createSelector } from "reselect";
+
 import { RootState } from "@/store/types";
 
-export const getCartProducts = (state: RootState) => state.cart.cartProducts;
-export const getIsDrawerOpen = (state: RootState) => state.cart.isDrawerOpen;
+const getCart = (state: RootState) => state.cart;
+
+export const getCartProducts = createSelector(
+  [getCart],
+  (cart) => cart.cartProducts
+);
+
+export const getIsDrawerOpen = createSelector(
+  [getCart],
+  (cart) => cart.isDrawerOpen
+);

@@ -14,3 +14,4 @@ It's an e-commerce platform that allows you to buy products and login into an ac
 - Formik
 - Flowbite Components
 - Fontsource
+- Redux (change to branch Redux)

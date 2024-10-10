@@ -4,14 +4,18 @@ import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 
 import ScrollToTop from "@/components/common/scrollToTop";
-import { observeAuthChange } from "@/data/firebase";
+import { getProducts, observeAuthChange } from "@/data/firebase";
 import FooterLayout from "@/routes/layouts/footer";
 import HeaderLayout from "@/routes/layouts/header";
+import { setProducts } from "@/store/product/action";
 import { setUser } from "@/store/user/action";
+
+//import { addProducts } from "@/data/firebase";
 
 export default function MainLayout() {
   const dispatch = useDispatch();
 
+  // user
   useEffect(() => {
     const unsubscribe = observeAuthChange((user: User | null) => {
       dispatch(setUser(user));
@@ -19,6 +23,22 @@ export default function MainLayout() {
 
     // return this instead () => unsubscribe, because is a wrapper of the real observer
     return unsubscribe;
+    // dispatch never changes, just added to dependencies to avoid lint warning
+  }, [dispatch]);
+
+  // products
+  useEffect(() => {
+    // Uncomment this for upload products
+    // Remember to add the write rule in Firebase
+    /* (async () => {
+      await addProducts();
+    })(); */
+
+    (async () => {
+      const products = await getProducts();
+      dispatch(setProducts(products));
+    })();
+
     // dispatch never changes, just added to dependencies to avoid lint warning
   }, [dispatch]);
 

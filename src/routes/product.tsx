@@ -1,13 +1,13 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 
 import ProductSection from "@/components/product/section";
-import { ProductContext } from "@/contexts/product";
 import { Product } from "@/lib/definitions";
+import { getProducts } from "@/store/product/selector";
 
 export default function ProductPage() {
   const { slug } = useParams();
-  const products = useContext(ProductContext);
+  const products = useSelector(getProducts);
 
   const product = products.find((product: Product) => product.slug === slug);
 

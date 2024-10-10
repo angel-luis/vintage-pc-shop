@@ -1,13 +1,14 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import ShopProductsList from "@/components/shop/products-list";
 import ShopSideNavigation from "@/components/shop/side-navigation";
 import ShopSortButton from "@/components/shop/sort-button";
-import { ProductContext } from "@/contexts/product";
-import { Brand, Product } from "@/lib/definitions";
+import { Brand } from "@/lib/definitions";
+import { getProducts } from "@/store/product/selector";
 
 export default function ShopPage() {
-  const products = useContext<Product[]>(ProductContext);
+  const products = useSelector(getProducts);
 
   const [sortOrder, setSortOrder] = useState<"asc" | "desc" | null>(null);
   const [searchTitle, setSearchTitle] = useState("");

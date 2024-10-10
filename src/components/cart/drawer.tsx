@@ -1,16 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
 import CartProduct from "@/components/cart/product";
 import Button from "@/components/common/button";
-import { CartContext } from "@/contexts/cart";
 import useCartActions from "@/hooks/useCartActions";
 import currencyConverter from "@/lib/currency-converter";
 import { ProductWithQuantity } from "@/lib/definitions";
+import { getCartProducts, getIsDrawerOpen } from "@/store/cart/selector";
 
 export default function CartDrawer() {
-  const { cartState } = useContext(CartContext);
-  const { cartProducts, isDrawerOpen } = cartState;
+  const cartProducts = useSelector(getCartProducts);
+  const isDrawerOpen = useSelector(getIsDrawerOpen);
   const { removeFromCart, updateQuantity, toggleDrawer } = useCartActions();
 
   // Close drawer when location changes (when clicking on a product)

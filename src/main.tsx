@@ -7,7 +7,6 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { CartContextProvider } from "@/contexts/cart";
 import AboutPage from "@/routes/about";
 import AuthenticationPage from "@/routes/authentication";
 import HomePage from "@/routes/home";
@@ -55,9 +54,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <CartContextProvider>
-        <RouterProvider router={router} />
-      </CartContextProvider>
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>
 );

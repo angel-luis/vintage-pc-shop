@@ -1,35 +1,37 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { CartContext } from "@/contexts/cart";
-import { handleAddToCart, handleRemoveFromCart, handleUpdateQuantity } from "@/lib/cart-utils";
+import {
+  handleAddToCart,
+  handleRemoveFromCart,
+  handleUpdateQuantity,
+} from "@/lib/cart-utils";
 import { Product, ProductQuantityAction } from "@/lib/definitions";
+import { setDrawerOpen, updateCartProducts } from "@/store/cart/action";
+import { getCartProducts, getIsDrawerOpen } from "@/store/cart/selector";
 
 export default function useCartActions() {
-  const cartContext = useContext(CartContext);
-  if (!cartContext)
-    throw new Error("Can't use this hook outside CartProvider!");
-
-  const { cartState, cartDispatcher } = cartContext;
-  const { cartProducts, isDrawerOpen } = cartState;
+  const cartProducts = useSelector(getCartProducts);
+  const isDrawerOpen = useSelector(getIsDrawerOpen);
+  const dispatch = useDispatch();
 
   function addToCart(product: Product) {
     const newCartProducts = handleAddToCart(cartProducts, product);
-    cartDispatcher({ type: "UPDATE_CART_PRODUCTS", payload: newCartProducts });
-    cartDispatcher({ type: "TOOGLE_DRAWER", payload: true });
+    dispatch(updateCartProducts(newCartProducts));
+    dispatch(setDrawerOpen(true));
   }
 
   function removeFromCart(product: Product) {
     const newCartProducts = handleRemoveFromCart(cartProducts, product);
-    cartDispatcher({ type: "UPDATE_CART_PRODUCTS", payload: newCartProducts });
+    dispatch(updateCartProducts(newCartProducts));
   }
 
   function updateQuantity(product: Product, action: ProductQuantityAction) {
     const newCartProducts = handleUpdateQuantity(cartProducts, product, action);
-    cartDispatcher({ type: "UPDATE_CART_PRODUCTS", payload: newCartProducts });
+    dispatch(updateCartProducts(newCartProducts));
   }
 
   function toggleDrawer() {
-    cartDispatcher({ type: "TOOGLE_DRAWER", payload: !isDrawerOpen });
+    dispatch(setDrawerOpen(!isDrawerOpen));
   }
 
   return { addToCart, removeFromCart, updateQuantity, toggleDrawer };

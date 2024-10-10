@@ -1,13 +1,12 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 import Button from "@/components/common/button";
-import { CartContext } from "@/contexts/cart";
 import useCartActions from "@/hooks/useCartActions";
-import { CartContextType } from "@/lib/definitions";
+import { getCartProducts } from "@/store/cart/selector";
 
 export default function CartButton() {
-  const { cartState } = useContext<CartContextType>(CartContext);
-  const { cartProducts } = cartState;
+  const cartProducts = useSelector(getCartProducts);
+  console.log("cartProducts", cartProducts);
   const { toggleDrawer } = useCartActions();
 
   const totalProducts = cartProducts.reduce(

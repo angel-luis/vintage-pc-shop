@@ -24,3 +24,4 @@ This is the Redux implementation of the project.
 - Redux Persist
 - Reselect
 - Redux Logger
+- Redux Thunk

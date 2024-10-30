@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 
 import ScrollToTop from "@/components/common/scrollToTop";
-import { getProducts, observeAuthChange } from "@/data/firebase";
+import { observeAuthChange } from "@/data/firebase";
 import FooterLayout from "@/routes/layouts/footer";
 import HeaderLayout from "@/routes/layouts/header";
-import { setProducts } from "@/store/product/action";
+import { fetchProductsAsync } from "@/store/product/action";
+import { ProductAction } from "@/store/types";
 import { setUser } from "@/store/user/action";
 
 //import { addProducts } from "@/data/firebase";
@@ -34,10 +35,7 @@ export default function MainLayout() {
       await addProducts();
     })(); */
 
-    (async () => {
-      const products = await getProducts();
-      dispatch(setProducts(products));
-    })();
+    dispatch(fetchProductsAsync() as unknown as ProductAction);
 
     // dispatch never changes, just added to dependencies to avoid lint warning
   }, [dispatch]);

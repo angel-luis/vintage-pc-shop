@@ -2,12 +2,14 @@ import { applyMiddleware, compose, createStore, Middleware } from "redux";
 import logger from "redux-logger";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { thunk } from "redux-thunk";
 
 import { rootReducer } from "@/store/reducer";
 
 // Show logger only in development environment
 const middlewares = [
   import.meta.env.VITE_ENVIRONMENT === "development" && logger,
+  thunk,
 ].filter(Boolean) as Middleware[];
 
 // Use Redux DevTools Extension only in development environment
@@ -22,7 +24,7 @@ const composeEnhancers = composeEnhancer(applyMiddleware(...middlewares));
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["user"],
+  whitelist: ["cart"],
 };
 
 // Sorry but I couldn't find a better solution

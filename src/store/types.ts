@@ -8,9 +8,15 @@ export type CartState = {
   isDrawerOpen: boolean;
 };
 
+export type ProductState = {
+  products: Product[];
+  loading: boolean;
+  error: string | null;
+};
+
 export type RootState = {
   user: User | null;
-  products: Product[];
+  products: ProductState;
   cart: CartState;
 };
 
@@ -20,10 +26,18 @@ export type UserAction = {
   payload: User | null;
 };
 
-export type ProductAction = {
-  type: "products/SET_PRODUCTS";
-  payload: Product[];
-};
+export type ProductAction =
+  | {
+      type: "products/FETCH_PRODUCTS_START";
+    }
+  | {
+      type: "products/FETCH_PRODUCTS_SUCCESS";
+      payload: Product[];
+    }
+  | {
+      type: "products/FETCH_PRODUCTS_FAILURE";
+      payload: string | null;
+    };
 
 export type CartAction =
   | { type: "cart/UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }

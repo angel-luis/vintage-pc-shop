@@ -15,3 +15,12 @@ It's an e-commerce platform that allows you to buy products and login into an ac
 - Flowbite Components
 - Fontsource
 - Redux (change to branch Redux)
+
+## Redux
+
+This is the Redux implementation of the project.
+
+- Redux
+- Redux Persist
+- Reselect
+- Redux Logger

@@ -24,4 +24,5 @@ This is the Redux implementation of the project.
 - Redux Persist
 - Reselect
 - Redux Logger
-- Redux Thunk
+- Redux Thunk (until commit #ac43f40)
+- Redux Saga

@@ -2,17 +2,14 @@ import { applyMiddleware, compose, createStore, Middleware } from "redux";
 import logger from "redux-logger";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import createSagaMiddleware from "redux-saga";
+import { thunk } from "redux-thunk";
 
 import { rootReducer } from "@/store/reducer";
-import { rootSaga } from "@/store/sagas";
-
-const sagaMiddleware = createSagaMiddleware();
 
 // Show logger only in development environment
 const middlewares = [
   import.meta.env.VITE_ENVIRONMENT === "development" && logger,
-  sagaMiddleware,
+  thunk,
 ].filter(Boolean) as Middleware[];
 
 // Use Redux DevTools Extension only in development environment
@@ -35,7 +32,5 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer as any);
 
 export const store = createStore(persistedReducer, undefined, composeEnhancers);
-
-sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);

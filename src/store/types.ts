@@ -21,10 +21,6 @@ export type RootState = {
 };
 
 // Actions
-export type UserAction = {
-  type: "user/SET_USER";
-  payload: User | null;
-};
 
 export type ProductAction =
   | {
@@ -39,8 +35,4 @@ export type ProductAction =
       payload: string | null;
     };
 
-export type CartAction =
-  | { type: "cart/UPDATE_CART_PRODUCTS"; payload: ProductWithQuantity[] }
-  | { type: "cart/SET_DRAWER_OPEN"; payload: boolean };
-
-export type RootAction = UserAction | ProductAction | CartAction;
+export type RootAction = ProductAction;

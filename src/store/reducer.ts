@@ -1,4 +1,4 @@
-import cartReducer from "@/store/cart/reducer";
+import cartReducer from "@/store/cart/slice";
 import productReducer from "@/store/product/reducer";
 import userReducer from "@/store/user/slice";
 import { combineReducers } from "@reduxjs/toolkit";

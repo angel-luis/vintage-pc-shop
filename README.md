@@ -14,14 +14,12 @@ It's an e-commerce platform that allows you to buy products and login into an ac
 - Formik
 - Flowbite Components
 - Fontsource
-- Redux (change to branch Redux)
+- Redux (change to branch _redux_)
+- Redux Toolkit (change to branch _redux-toolkit_)
 
-## Redux
+## Redux Toolkit
 
-This is the Redux implementation of the project.
+This is the Redux Toolkit implementation of the project.
 
-- Redux
-- Redux Persist
-- Reselect
+- Redux Toolkit
 - Redux Logger
-- Redux Thunk

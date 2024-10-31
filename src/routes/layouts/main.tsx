@@ -9,7 +9,7 @@ import FooterLayout from "@/routes/layouts/footer";
 import HeaderLayout from "@/routes/layouts/header";
 import { fetchProductsAsync } from "@/store/product/action";
 import { ProductAction } from "@/store/types";
-import { setUser } from "@/store/user/action";
+import { setUser } from "@/store/user/slice";
 
 //import { addProducts } from "@/data/firebase";
 

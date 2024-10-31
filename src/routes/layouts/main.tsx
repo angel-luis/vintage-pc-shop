@@ -7,8 +7,7 @@ import ScrollToTop from "@/components/common/scrollToTop";
 import { observeAuthChange } from "@/data/firebase";
 import FooterLayout from "@/routes/layouts/footer";
 import HeaderLayout from "@/routes/layouts/header";
-import { fetchProductsAsync } from "@/store/product/action";
-import { ProductAction } from "@/store/types";
+import { fetchProductsAsync } from "@/store/product/slice";
 import { setUser } from "@/store/user/slice";
 
 //import { addProducts } from "@/data/firebase";
@@ -35,7 +34,8 @@ export default function MainLayout() {
       await addProducts();
     })(); */
 
-    dispatch(fetchProductsAsync() as unknown as ProductAction);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dispatch(fetchProductsAsync() as any);
 
     // dispatch never changes, just added to dependencies to avoid lint warning
   }, [dispatch]);

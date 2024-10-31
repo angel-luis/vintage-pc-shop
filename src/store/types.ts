@@ -19,20 +19,3 @@ export type RootState = {
   products: ProductState;
   cart: CartState;
 };
-
-// Actions
-
-export type ProductAction =
-  | {
-      type: "products/FETCH_PRODUCTS_START";
-    }
-  | {
-      type: "products/FETCH_PRODUCTS_SUCCESS";
-      payload: Product[];
-    }
-  | {
-      type: "products/FETCH_PRODUCTS_FAILURE";
-      payload: string | null;
-    };
-
-export type RootAction = ProductAction;

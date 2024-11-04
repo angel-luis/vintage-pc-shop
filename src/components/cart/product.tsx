@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "@/components/common/button";
 import currencyConverter from "@/lib/currency-converter";
 import { ProductQuantityAction, ProductWithQuantity } from "@/lib/definitions";
 
-export default function CartProduct({
+function CartProduct({
   product,
   removeFromCart,
   updateQuantity,
@@ -113,3 +113,5 @@ export default function CartProduct({
     </div>
   );
 }
+
+export default memo(CartProduct);

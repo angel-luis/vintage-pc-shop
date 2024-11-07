@@ -16,3 +16,5 @@ It's an e-commerce platform that allows you to buy products and login into an ac
 - Fontsource
 - Redux (change to branch _redux_)
 - Redux Toolkit (change to branch _redux-toolkit_)
+- Vitest
+- React Testing Library

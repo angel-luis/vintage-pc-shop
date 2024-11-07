@@ -1,19 +1,21 @@
 export default function Input({
   name,
-  label,
   type,
-  onChange,
   value,
+  readOnly,
+  label,
+  onChange,
   minLength,
-  required = false,
+  required,
   disabled,
   placeholder,
 }: {
   name: string;
-  label?: string;
   type: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string | number;
+  readOnly?: boolean;
+  label?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   minLength?: number;
   required?: boolean;
   disabled?: boolean;
@@ -40,6 +42,7 @@ export default function Input({
         required={required}
         disabled={disabled}
         placeholder={placeholder}
+        readOnly={readOnly}
       />
     </>
   );

@@ -26,7 +26,7 @@ export default function Input({
       {label && (
         <label
           className="block mb-2 text-sm font-medium text-gray-900"
-          htmlFor="{name}"
+          htmlFor={name}
         >
           {label}
         </label>

@@ -52,7 +52,7 @@ export default function SignUpForm() {
         />
 
         <Input
-          label="Email Address"
+          label="A Valid Email Address"
           name="email"
           type="email"
           onChange={formik.handleChange}
@@ -61,7 +61,7 @@ export default function SignUpForm() {
         />
 
         <Input
-          label="Password"
+          label="A Strong Password"
           name="password"
           type="password"
           onChange={formik.handleChange}
@@ -71,7 +71,7 @@ export default function SignUpForm() {
         />
 
         <Input
-          label="Confirm Password"
+          label="Confirm Your Password"
           name="confirmPassword"
           type="password"
           onChange={formik.handleChange}
